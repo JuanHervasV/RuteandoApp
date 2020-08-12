@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fm_container"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_margin="4dp"
+        android:layout_weight=".2"
+        android:background="@drawable/rounded_cornersscharff"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:layout_weight=".4"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_activity"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="204dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_cornersscharff"
+                android:text="Scaneo de paquetes"
+                android:textColor="@color/black"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btn_fragment"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_cornersscharff"
+
+                android:text="Scaneo masivo"
+                android:textColor="@color/black"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="373dp"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="204dp"
+                android:layout_height="match_parent"
+                android:textAlignment="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/usuarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="124dp"
+                    android:text="Total de guias escaneadas: "
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/contarelementos"
+                    android:layout_width="match_parent"
+                    android:layout_height="197dp"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btnConfirmarDatos"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_cornersscharff"
+                    android:onClick="onClick"
+                    android:text="Agregar guías"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:onClick="onClick"
+            android:background="@drawable/rounded_cornersscharff"
+            android:text="Cerrar sesión"
+            android:textColor="@color/black"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

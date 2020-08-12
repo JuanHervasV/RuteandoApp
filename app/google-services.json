@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "868989452374",
+    "firebase_url": "https://cytapp.firebaseio.com",
+    "project_id": "cytapp",
+    "storage_bucket": "cytapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868989452374:android:3bd6106898dba52d51bbf7",
+        "android_client_info": {
+          "package_name": "com.example.ruteandoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868989452374-o5en44674d43mdpl9g6ig2cjk2saqbhk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ruteandoapp",
+            "certificate_hash": "58b6812ed384112fbf2bfcf10801a961e7a42d25"
+          }
+        },
+        {
+          "client_id": "868989452374-4aopoejjpe2beneve6p7rq2hf4cnrr3f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARf8rG1Go2Hak9jzKsdmeSXYV6rxLvIIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868989452374-4aopoejjpe2beneve6p7rq2hf4cnrr3f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

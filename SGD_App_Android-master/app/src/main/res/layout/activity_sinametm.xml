@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fm_container"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="4dp"
+        android:layout_weight=".2"
+        android:background="@color/colorAccent"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        android:layout_weight=".4"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_fragment"
+                android:layout_width="199dp"
+                android:layout_height="60dp"
+                android:text="Scanear por fragmentos" />
+
+            <Button
+                android:id="@+id/btn_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Scanear pantalla completa" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="128dp"
+            android:drawSelectorOnTop="false"/>
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Llegar lista" />
+
+        <Button
+            android:id="@+id/cerrar_sesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="Cerrar sesión" />
+
+        <TextView
+            android:id="@+id/tv_result_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="403dp"
+            android:layout_height="68dp"
+            android:layout_margin="4dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

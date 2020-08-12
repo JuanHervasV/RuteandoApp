@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF7177</color>
+    <color name="colorPrimaryDark">#9C9C9C</color>
+    <color name="colorAccent">#FF7177</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#808080</color>
+    <color name="skyblue">#87CEFA</color>
+    <color name="verdeclaro">#90FFD8</color>
+    <color name="amarilloclaro">#FED792</color>
+    <color name="colorRowSeparator">#cccccc</color>
+    <color name="filterBackground">#cccccc</color>
+    <color name="filterText">#3366cc</color>
+    <color name="AmarilloScharff">#FFC35A</color>
+    <color name="VerdeScharff">#5ACC99</color>
+    <color name="CelesteScharff">#00B4DB</color>
+</resources>

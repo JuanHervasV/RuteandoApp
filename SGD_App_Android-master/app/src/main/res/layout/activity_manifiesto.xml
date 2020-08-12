@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/amarilloclaro"
+    tools:context="com.notbytes.barcodereader.ManifiestoAct">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/AmarilloScharff"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="120dp"
+        android:layout_height="21dp"
+        android:text="Escoger Manifiesto"
+        android:textColor="@color/white"
+        android:textSize="11dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="48dp"
+        android:layout_height="11dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:text="Manifiesto"
+        android:textSize="6dp" />
+
+    <Button
+        android:id="@+id/btnBr"
+        android:layout_width="46dp"
+        android:layout_height="14dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:drawableTop="@drawable/barcodesymbol"
+        android:onClick="onClick"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/mfto"
+        android:layout_width="55dp"
+        android:layout_height="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginBottom="59dp"
+        android:background="@drawable/rounded_cornerneutral"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="011800000077"
+        android:textSize="6dp" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="428dp"
+        android:background="@drawable/rounded_corners"
+        android:onClick="onClick"
+        android:text="Enviar" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="165dp"
+        android:layout_height="26dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="10dp"
+        android:text="Escriba o scanee su manifiesto a continuación: "
+        android:textSize="8dp" />
+
+</RelativeLayout>

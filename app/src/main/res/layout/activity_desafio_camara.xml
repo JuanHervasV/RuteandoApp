@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundlogo"
+    tools:context=".DesafioCamara">
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="143dp"
+        android:layout_above="@+id/editText_login_username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="-10dp"
+        android:layout_toStartOf="@+id/image_ruteando"
+        android:background="@drawable/camaras"
+        android:contentDescription="TODO"
+        android:foreground="@drawable/camaras" />
+
+
+</RelativeLayout>

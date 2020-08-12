@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".Login">
+
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText_login_username"
+
+        android:layout_marginBottom="-10dp"
+        android:layout_toStartOf="@+id/image_ruteando"
+        android:background="@drawable/scharff_logo_s"
+
+        android:foreground="@drawable/scharff_logo_s" />
+
+
+    <ImageView
+        android:id="@+id/image_ruteando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/ruteando_scharff"
+        android:foreground="@drawable/ruteando_scharff" />
+
+    <EditText
+        android:id="@+id/editText_login_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_ruteando"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints=""
+        android:background="@drawable/rounded_corners"
+        android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:selectAllOnFocus="true"
+        android:text="76925028" />
+
+    <EditText
+        android:id="@+id/editText_login_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_login_username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints=""
+        android:background="@drawable/rounded_corners"
+        android:hint="@string/prompt_password"
+        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black"
+        android:text="12345" />
+
+    <Button
+        android:id="@+id/button_login_login"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText_login_password"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="114dp"
+        android:background="@drawable/rounded_corners"
+        android:onClick="onClick"
+        android:text="@string/iniciar_sesi_n"
+        android:textColor="@color/grey" />
+
+
+</RelativeLayout>
