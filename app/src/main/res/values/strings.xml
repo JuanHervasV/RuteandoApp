@@ -19,4 +19,15 @@
     <string name="title_activity_main">Main</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="retos">
+        <item>Escanea tu fotocheck</item>
+        <item>Reto fotografía</item>
+        <item>Buen cuidado personal</item>
+    </string-array>
+    <string-array name="descripcion_retos">
+        <item>El reto consiste en tomarle una fotografía a tu fotocheck y enviarnosla para ganar muchos puntos.</item>
+        <item>Reto espontáneo en el cuál deberás de enviar diversas fotografías.</item>
+        <item>Muestranos como te cuidas y a tus activos de trabajo para ganar puntos.</item>
+    </string-array>
+
 </resources>
