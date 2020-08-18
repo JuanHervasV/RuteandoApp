@@ -6,12 +6,6 @@
     android:background="@drawable/backgroundlogo_morado"
     tools:context=".Controlador.Retos">
 
-    <androidx.recyclerview.widget.RecyclerView
 
-        android:id="@+id/retosrecycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

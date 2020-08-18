@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundlogo"
+    tools:context=".RetoFotografia">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/carnasthin"
+        android:gravity="center"
+
+        android:text="Reto Fotografía"
+        android:layout_marginTop="68dp"
+        android:textAlignment="center"
+        android:textSize="45dp" />
+
+    <Button
+        android:id="@+id/escogerfoto"
+        android:layout_width="202dp"
+        android:layout_height="66dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="105dp"
+        android:background="@drawable/rounded_cornersscharff"
+        android:gravity="center"
+
+        android:text="Escoger foto"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:id="@+id/foto"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:layout_centerInParent="true"
+        android:foregroundGravity="center"
+        android:layout_below="@id/escogerfoto"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:id="@+id/subirfoto"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foto"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="153dp"
+        android:background="@drawable/rounded_cornersscharff"
+        android:gravity="center"
+        android:text="Subir foto"
+        android:textAlignment="center" />
+
+
+</RelativeLayout>

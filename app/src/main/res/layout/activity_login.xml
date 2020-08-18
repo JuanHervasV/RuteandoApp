@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/backloginf"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
@@ -12,47 +12,42 @@
     tools:context=".Login">
 
 
-    <ImageView
-        android:id="@+id/image_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText_login_username"
-
-        android:layout_marginBottom="-10dp"
-        android:layout_toStartOf="@+id/image_ruteando"
-        android:background="@drawable/scharff_logo_s"
-
-        android:foreground="@drawable/scharff_logo_s" />
-
-
-    <ImageView
-        android:id="@+id/image_ruteando"
+    <TextView
+        android:id="@+id/tagLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="70dp"
-        android:background="@drawable/ruteando_scharff"
-        android:foreground="@drawable/ruteando_scharff" />
+        android:layout_marginTop="94dp"
+        android:layout_marginBottom="9dp"
+        android:layout_alignStart="@+id/editText_login_username"
+        android:layout_alignEnd="@+id/editText_login_username"
+        android:text="Ruteando"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:fontFamily="@font/carnasthin"
+        />
 
     <EditText
         android:id="@+id/editText_login_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image_ruteando"
+        android:layout_below="@+id/tagLine"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:autofillHints=""
         android:background="@drawable/rounded_corners"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
-        android:textColor="@color/black"
         android:selectAllOnFocus="true"
-        android:text="76925028" />
+        android:text="76925028"
+        android:textColor="@color/black"
+        android:fontFamily="@font/carnasthin"/>
 
     <EditText
         android:id="@+id/editText_login_password"
@@ -72,7 +67,8 @@
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         android:textColor="@color/black"
-        android:text="12345" />
+        android:text="12345"
+        android:fontFamily="@font/carnasthin"/>
 
     <Button
         android:id="@+id/button_login_login"
@@ -87,7 +83,8 @@
         android:background="@drawable/rounded_corners"
         android:onClick="onClick"
         android:text="@string/iniciar_sesi_n"
-        android:textColor="@color/grey" />
+        android:textColor="@color/black"
+        android:fontFamily="@font/carnasthin"/>
 
 
 </RelativeLayout>

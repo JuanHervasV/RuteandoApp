@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "868989452374",
-    "firebase_url": "https://cytapp.firebaseio.com",
-    "project_id": "cytapp",
-    "storage_bucket": "cytapp.appspot.com"
+    "project_number": "375302642352",
+    "firebase_url": "https://ruteandoapp-60128.firebaseio.com",
+    "project_id": "ruteandoapp-60128",
+    "storage_bucket": "ruteandoapp-60128.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:868989452374:android:3bd6106898dba52d51bbf7",
+        "mobilesdk_app_id": "1:375302642352:android:2edb9964fc1a6d66203975",
         "android_client_info": {
           "package_name": "com.example.ruteandoapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "868989452374-o5en44674d43mdpl9g6ig2cjk2saqbhk.apps.googleusercontent.com",
+          "client_id": "375302642352-mpshcr5au03qqthlumhqi0kuicu2u7qb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.ruteandoapp",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "868989452374-4aopoejjpe2beneve6p7rq2hf4cnrr3f.apps.googleusercontent.com",
+          "client_id": "375302642352-l62515ajfm9mtmingdp4i0l9d3d25lrr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARf8rG1Go2Hak9jzKsdmeSXYV6rxLvIIk"
+          "current_key": "AIzaSyAFYGhWeZKnScOXNb7tuiuWYkzMLOACwzg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "868989452374-4aopoejjpe2beneve6p7rq2hf4cnrr3f.apps.googleusercontent.com",
+              "client_id": "375302642352-l62515ajfm9mtmingdp4i0l9d3d25lrr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

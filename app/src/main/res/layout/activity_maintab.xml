@@ -37,7 +37,7 @@
             android:id="@+id/salir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Salir"
+            android:text="Configuración"
             android:icon="@drawable/ic_baseline_exit_to_app_24"/>
 
 
