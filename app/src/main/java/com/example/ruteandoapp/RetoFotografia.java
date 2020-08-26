@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.ruteandoapp.Controlador.Retos;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -63,11 +64,7 @@ public class RetoFotografia extends AppCompatActivity {
                 Fileuploader();
             }
         });
-
-
-
     }
-
     private String getExtension(Uri uri){
         ContentResolver cr = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -80,22 +77,18 @@ public class RetoFotografia extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // Get a URL to the uploaded content
-                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Toast.makeText(RetoFotografia.this, "Imagen subida satisfactoriamente",Toast.LENGTH_LONG).show();
 
+                        Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
 
                         Ref.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                             @Override
                             public void onComplete(@NonNull Task<Uri> task) {
+                                //Este es el link de la imagen
                                 String profileImageUrl=task.getResult().toString();
                                 Log.i("URL",profileImageUrl);
                             }
                         });
-
-
-
-
+                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -106,7 +99,6 @@ public class RetoFotografia extends AppCompatActivity {
                     }
                 });
     }
-
     private void Filechooser() {
         Intent intent= new Intent();
         intent.setType("image/*");

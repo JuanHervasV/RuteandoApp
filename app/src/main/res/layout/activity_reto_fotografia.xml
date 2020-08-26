@@ -14,28 +14,42 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/carnasthin"
         android:gravity="center"
-
-        android:text="Reto Fotografía"
-        android:layout_marginTop="68dp"
+        android:text="Reto del día"
+        android:layout_marginTop="85dp"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="45dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:textSize="20dp"
+        android:layout_marginTop="65dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/carnasthin"
+        android:textAlignment="center"
+        android:text="El reto del día de hoy consiste en tomar una fotografía a algún adorno en casa." />
 
     <Button
         android:id="@+id/escogerfoto"
         android:layout_width="202dp"
         android:layout_height="66dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="105dp"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="30dp"
         android:background="@drawable/rounded_cornersscharff"
         android:gravity="center"
-
+        android:foregroundGravity="center"
+        android:layout_centerInParent="true"
         android:text="Escoger foto"
         android:textAlignment="center" />
 
     <ImageView
         android:id="@+id/foto"
-        android:layout_width="200dp"
+        android:layout_width="202dp"
         android:layout_height="200dp"
         android:layout_marginTop="30dp"
         android:layout_centerInParent="true"
@@ -45,8 +59,8 @@
 
     <Button
         android:id="@+id/subirfoto"
-        android:layout_width="186dp"
-        android:layout_height="wrap_content"
+        android:layout_width="202dp"
+        android:layout_height="54dp"
         android:layout_below="@+id/foto"
         android:layout_centerInParent="true"
         android:layout_marginTop="31dp"

@@ -1,14 +1,23 @@
 package com.example.ruteandoapp.Controlador;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.ruteandoapp.Entidades.Persona;
+import com.example.ruteandoapp.Entidades.RetosInfo;
 import com.example.ruteandoapp.R;
+import com.example.ruteandoapp.RetoFotografia;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +25,10 @@ import com.example.ruteandoapp.R;
  * create an instance of this fragment.
  */
 public class Retos extends Fragment {
+
+    RetosAdapter rankingAdapter;
+    private RecyclerView recyclerViewRetos;
+    ArrayList<RetosInfo> listaPersonas;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,6 +61,28 @@ public class Retos extends Fragment {
         return fragment;
     }
 
+    public void cargarLista(){
+        listaPersonas.add(new RetosInfo("Reto fotografía","Consiste en tomar una fotografía con las indicaciones que te daremos.",R.drawable.fotografia));
+        listaPersonas.add(new RetosInfo("Reto fotocheck","Deberás de tomarle una fotografía a tu fotocheck para ganar puntos.",R.drawable.fotocheck));
+        listaPersonas.add(new RetosInfo("Reto cuidándonos","Consiste en contarnos mediante una fotografía y una breve descripción el cómo cuidas tus herramientas de trabajo.",R.drawable.cuidandoherramientas));
+
+    }
+    public void mostrarDatos(){
+        recyclerViewRetos.setLayoutManager(new LinearLayoutManager(getContext()));
+        rankingAdapter = new RetosAdapter(getContext(), listaPersonas);
+        recyclerViewRetos.setAdapter(rankingAdapter);
+        rankingAdapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), RetoFotografia.class);
+                String nombre = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getNombre();
+                Toast.makeText(getContext(), "Seleccionó: "+nombre,Toast.LENGTH_LONG).show();
+                getActivity().startActivity(intent);
+            }
+        });
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +95,13 @@ public class Retos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_retos, container, false);
+        View view = inflater.inflate(R.layout.fragment_retos, container, false);
+        recyclerViewRetos = view.findViewById(R.id.recyclerranking);
+        listaPersonas = new ArrayList<>();
+        //Cargar lista
+        cargarLista();
+        //Mostrar datos
+        mostrarDatos();
+        return view;
     }
 }

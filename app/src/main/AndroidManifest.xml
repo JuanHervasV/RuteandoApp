@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".RetoFotografia">
             <intent-filter>
                 <action android:name="RETOS"/>

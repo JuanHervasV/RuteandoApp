@@ -6,24 +6,27 @@ public class Vars {
     private String mensaje;
     private String Login;
     private String Password;
-    private String login;
-    private String password;
+    private String usu;
+    private String pwd;
     private String CodigoUsuario;
+    private int UsuId;
+    private String Nombre;
+    private String Apep;
 
 
-    public String login() {
-        return Login;
+    public int UsuId() {
+        return UsuId;
     }
-    public String password() {
-        return Password;
+    public String Nombre() {
+        return Nombre;
     }
-    public String codigoUsuario() {
-        return CodigoUsuario;
+    public String Apep() {
+        return Apep;
     }
 
-    public Vars(String Login, String Password) {
-        login= Login;
-        password= Password;
+    public Vars(String Usu, String Pwd) {
+        usu= Usu;
+        pwd= Pwd;
     }
 
 }

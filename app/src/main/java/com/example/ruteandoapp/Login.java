@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -38,28 +39,33 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         FirebaseApp.initializeApp(this);
 
-
         LoginText = findViewById(R.id.editText_login_username);
         PasswordText = findViewById(R.id.editText_login_password);
 
         //TestApi = findViewById(R.id.TestApi);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://200.37.50.53/ApiCyT/api/")
+                .baseUrl("http://200.37.50.53/ApiRuteando/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         jsonPlaceHolderApi = retrofit.create(APIRetrofitInterface.class);
 
         this.Usuario = LoginText.getText().toString();
         this.Pass = PasswordText.getText().toString();
-
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-
-        if (networkInfo != null && networkInfo.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Hay internet", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(getApplicationContext(), "No hay internet", Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        int ID = sharedPref.getInt("id", 2);
+        String nombre = sharedPref.getString("usuario", "nombreusuario");
+        String apellido = sharedPref.getString("apellido", "apellidousuario");
+        //Toast.makeText(getApplicationContext(), " "+ID, Toast.LENGTH_SHORT).show();
+        if(nombre!="nombreusuario" && ID!=2 && apellido!="apellidousuario"){
+            Intent i = new Intent(Login.this, Maintab.class);
+            Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
+            startActivity(i);
+            finish();
         }
+        else{
+
+        }
+
     }
 
     public void onClick(View v) {
@@ -73,6 +79,7 @@ public class Login extends AppCompatActivity {
 
         String usuario = LoginText.getText().toString();
         String password = PasswordText.getText().toString();
+
         //Aqui enviar los datos
         //String resul = mTvResult.getText().toString();
         Vars vars = new Vars(usuario,password);
@@ -87,23 +94,23 @@ public class Login extends AppCompatActivity {
                 }
                 Vars postsResponse = response.body();
 
-                String Estado = postsResponse.login();
-                String Mensaje = postsResponse.password();
-                String CodigoUsuario = postsResponse.codigoUsuario();
+                int idusu = postsResponse.UsuId();
+                String nombre = postsResponse.Nombre();
+                String apellido = postsResponse.Apep();
 
-                Toast.makeText(Login.this, "Autentificación correcta", Toast.LENGTH_SHORT).show();
-                String usuario = LoginText.getText().toString();
-                String password = PasswordText.getText().toString();
+                Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
+
+                //Guardar Login SharedPreferences
+                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putInt("id", idusu);
+                editor.putString("usuario", nombre);
+                editor.putString("apellido", apellido);
+                editor.apply();
                 Intent i = new Intent(Login.this, Maintab.class);
-                Bundle c = new Bundle();
-                c.putString("usuario", usuario);
-                c.putString("password", password);
-                c.putString("codigousuario", CodigoUsuario);
-                i.putExtras(c);
                 startActivity(i);
-
+                finish();
             }
-
             @Override
             public void onFailure(Call<Vars> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Fallo al ingresar los datos, compruebe su red.", Toast.LENGTH_SHORT).show();

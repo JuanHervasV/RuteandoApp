@@ -45,7 +45,7 @@
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
-        android:text="76925028"
+        android:text="RutAdmin"
         android:textColor="@color/black"
         android:fontFamily="@font/carnasthin"/>
 
@@ -67,7 +67,7 @@
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
         android:textColor="@color/black"
-        android:text="12345"
+        android:text="9549549"
         android:fontFamily="@font/carnasthin"/>
 
     <Button

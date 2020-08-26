@@ -1,25 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundlogo_amarillo"
+    android:orientation="vertical"
     tools:context=".Controlador.Salir">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_marginTop="80dp">
+        <ImageView
+            android:id="@+id/imgcolaborador"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:background="@drawable/scharffsimplef"></ImageView>
+
+        <TextView
+            android:id="@+id/nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imgcolaborador"
+            android:layout_toRightOf="@+id/imgcolaborador"
+            android:text="Juan Hervas"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/descrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imgcolaborador"
+            android:layout_toRightOf="@+id/imgcolaborador"
+            android:text="Practicante de sistemas"
+            android:textColor="@color/black"
+            android:layout_below="@+id/nombre"/>
+
+</RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgworking"
+        android:layout_width="260dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/workingf"></ImageView>
+
+    <Button
+        android:id="@+id/contactar"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/rounded_corneramarillo"
+        android:text="Contáctanos" />
+
+    <Button
+        android:id="@+id/salir"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="29dp"
+        android:background="@drawable/rounded_corneramarillo"
         android:gravity="center"
-        android:text="Pantalla Salir"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        android:textAlignment="center">
+        android:text="Cerrar sesión" />
 
-    </TextView>
 
-</FrameLayout>
+</LinearLayout>
