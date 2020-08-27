@@ -56,13 +56,12 @@ public class Login extends AppCompatActivity {
         String nombre = sharedPref.getString("usuario", "nombreusuario");
         String apellido = sharedPref.getString("apellido", "apellidousuario");
         //Toast.makeText(getApplicationContext(), " "+ID, Toast.LENGTH_SHORT).show();
-        if(nombre!="nombreusuario" && ID!=2 && apellido!="apellidousuario"){
+        if (nombre != "nombreusuario" && ID != 2 && apellido != "apellidousuario") {
             Intent i = new Intent(Login.this, Maintab.class);
-            Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Login.this, "Bienvenido " + nombre + " " + apellido, Toast.LENGTH_SHORT).show();
             startActivity(i);
             finish();
-        }
-        else{
+        } else {
 
         }
 
@@ -75,14 +74,15 @@ public class Login extends AppCompatActivity {
                 break;
         }
     }
-    private void createPost(){
+
+    private void createPost() {
 
         String usuario = LoginText.getText().toString();
         String password = PasswordText.getText().toString();
 
         //Aqui enviar los datos
         //String resul = mTvResult.getText().toString();
-        Vars vars = new Vars(usuario,password);
+        Vars vars = new Vars(usuario, password);
         Call<Vars> call = jsonPlaceHolderApi.login(vars);
         call.enqueue(new Callback<Vars>() {
             @Override
@@ -98,7 +98,7 @@ public class Login extends AppCompatActivity {
                 String nombre = postsResponse.Nombre();
                 String apellido = postsResponse.Apep();
 
-                Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Bienvenido " + nombre + " " + apellido, Toast.LENGTH_SHORT).show();
 
                 //Guardar Login SharedPreferences
                 SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
@@ -111,6 +111,7 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
+
             @Override
             public void onFailure(Call<Vars> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Fallo al ingresar los datos, compruebe su red.", Toast.LENGTH_SHORT).show();
