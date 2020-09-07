@@ -5,10 +5,10 @@ public class RetosInfo {
     private String descrip;
     private int imagen;
 
-    public RetosInfo(String nombre, String descrip, int imagen) {
+    public RetosInfo(String nombre, String descrip) {
         this.nombre = nombre;
         this.descrip = descrip;
-        this.imagen = imagen;
+        //this.imagen = imagen;
     }
 
     public String getNombre() {
@@ -27,11 +27,7 @@ public class RetosInfo {
         this.descrip = descrip;
     }
 
-    public int getImagen() {
-        return imagen;
-    }
+    //public int getImagen() {      return imagen;    }
 
-    public void setImagen(int imagen) {
-        this.imagen = imagen;
-    }
+    //public void setImagen(int imagen) {      this.imagen = imagen;   }
 }

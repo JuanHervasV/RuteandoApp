@@ -25,26 +25,21 @@ public class SplashScreen extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 5000;
     //Hooks
     View first,second,third,fourth,fifth,sixth;
-    TextView slogan;
-    ImageView logo;
+    TextView nombreapp;
+    ImageView balloon;
     //Animations
     Animation topAnimantion,bottomAnimation,middleAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("RETOS");
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
         //Hooks
-        first = findViewById(R.id.first_line);
-        second = findViewById(R.id.second_line);
-        third = findViewById(R.id.third_line);
-        fourth = findViewById(R.id.fourth_line);
-        fifth = findViewById(R.id.fifth_line);
-        sixth = findViewById(R.id.sixth_line);
-        logo = findViewById(R.id.logo);
-        slogan = findViewById(R.id.tagLine);
+
+        balloon = findViewById(R.id.ballon);
+        nombreapp = findViewById(R.id.nombreapp);
 
         //Animation Calls
         topAnimantion = AnimationUtils.loadAnimation(this, R.anim.top_animation);
@@ -53,14 +48,9 @@ public class SplashScreen extends AppCompatActivity {
 
         //-----------Setting Animations to the elements of Splash
 
-        first.setAnimation(topAnimantion);
-        second.setAnimation(topAnimantion);
-        third.setAnimation(topAnimantion);
-        fourth.setAnimation(topAnimantion);
-        fifth.setAnimation(topAnimantion);
-        sixth.setAnimation(topAnimantion);
-        logo.setAnimation(middleAnimation);
-        slogan.setAnimation(bottomAnimation);
+
+        balloon.setAnimation(topAnimantion);
+        nombreapp.setAnimation(bottomAnimation);
 
         //Splash Screen Code to call new Activity after some time
         new Handler().postDelayed(new Runnable() {

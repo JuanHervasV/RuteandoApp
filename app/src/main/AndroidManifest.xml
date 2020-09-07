@@ -13,28 +13,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity android:name=".DesafioCuidando"
+            android:screenOrientation="portrait"
+            >
 
-        <activity android:name=".RetoFotografia">
+        </activity>
+        <activity android:name=".DesafioFotocheck"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ContactarF"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RetoFotografia"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="RETOS"/>
+                <action android:name="RETOS" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"
+                    android:screenOrientation="portrait"/>
             </intent-filter>
-
         </activity>
-        <activity android:name=".Maintab" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".Maintab"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"
+                    android:screenOrientation="portrait"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DesafioCamara" />
-        <activity android:name=".Login" />
-        <activity android:name=".Principal">
-        </activity>
-
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Principal"
+            android:screenOrientation="portrait"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

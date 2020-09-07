@@ -9,7 +9,7 @@
     tools:context=".RetoFotografia">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/retoTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/carnasthin"
@@ -21,14 +21,14 @@
         android:textSize="45dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/retoDescrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
+        android:layout_below="@+id/retoTitulo"
+        android:layout_alignStart="@+id/retoTitulo"
+        android:layout_alignEnd="@+id/retoTitulo"
         android:textSize="20dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="80dp"
         android:textColor="@color/black"
         android:fontFamily="@font/carnasthin"
         android:textAlignment="center"
@@ -38,7 +38,7 @@
         android:id="@+id/escogerfoto"
         android:layout_width="202dp"
         android:layout_height="66dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/retoDescrip"
         android:layout_marginTop="30dp"
         android:background="@drawable/rounded_cornersscharff"
         android:gravity="center"

@@ -9,11 +9,13 @@
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
     >
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        >
 
         <ImageView
             android:id="@+id/idImagen"

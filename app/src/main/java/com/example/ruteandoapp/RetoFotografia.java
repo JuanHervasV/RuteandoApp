@@ -4,15 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ruteandoapp.Controlador.Retos;
@@ -35,18 +39,31 @@ public class RetoFotografia extends AppCompatActivity {
     StorageReference mStorageRef;
     public Uri imguri;
     private StorageTask uploadTask;
+    private TextView tituloReto, descripReto;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reto_fotografia);
 
-
         mStorageRef = FirebaseStorage.getInstance().getReference("Images");
+        FirebaseMessaging.getInstance().subscribeToTopic("RETOS");
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+        int ID = preferences.getInt("id", 2);
+        String tituloreto = preferences.getString("nombrereto", "NombreReto");
+        String descripreto = preferences.getString("descripreto", "DescripReto");
+        String tiporeto = preferences.getString("tiporeto", "TipoReto");
 
         ch = findViewById(R.id.escogerfoto);
         up = findViewById(R.id.subirfoto);
         img = findViewById(R.id.foto);
+        tituloReto = findViewById(R.id.retoTitulo);
+        descripReto = findViewById(R.id.retoDescrip);
+
+        tituloReto.setText(""+tituloreto);
+        descripReto.setText(""+descripreto);
 
         ch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +105,7 @@ public class RetoFotografia extends AppCompatActivity {
                                 Log.i("URL",profileImageUrl);
                             }
                         });
+
                         finish();
                     }
                 })

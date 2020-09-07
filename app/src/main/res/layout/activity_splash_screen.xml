@@ -1,109 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context=".SplashScreen">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <View
-            android:id="@+id/first_line"
-            android:layout_width="20dp"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/white_line"
-            android:foreground="@drawable/rounded_cornercero"/>
+    <ImageView
+        android:id="@+id/ballon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/ballonfg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+    </ImageView>
 
-        <View
-            android:id="@+id/second_line"
-            android:layout_width="20dp"
-            android:layout_height="120dp"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/first_line"
-            android:background="@drawable/red_line"
-            android:foreground="@drawable/rounded_cornercero"/>
+    <TextView
+        android:id="@+id/nombreapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:fontFamily="@font/carnasbold"
+        android:text="Ruteando"
+        android:textColor="@color/black"
+        android:textSize="51dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ballon"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <View
-            android:id="@+id/third_line"
-            android:layout_width="20dp"
-            android:layout_height="270dp"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/second_line"
-            android:background="@drawable/white_line"
-            android:foreground="@drawable/rounded_cornercero"/>
 
-        <View
-            android:id="@+id/fourth_line"
-            android:layout_width="20dp"
-            android:layout_height="220dp"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/third_line"
-            android:background="@drawable/red_line"
-            android:foreground="@drawable/rounded_cornercero"/>
-
-        <View
-            android:id="@+id/fifth_line"
-            android:layout_width="20dp"
-            android:layout_height="240dp"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/fourth_line"
-            android:background="@drawable/green_line"
-            android:foreground="@drawable/rounded_cornercero" />
-
-        <View
-            android:id="@+id/sixth_line"
-            android:layout_width="20dp"
-            android:layout_height="170dp"
-            android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/fifth_line"
-            android:background="@drawable/white_line"
-            android:foreground="@drawable/rounded_cornercero"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/logomediano"
-            android:scaleType="center"
-            android:foregroundGravity="center">
-
-        </ImageView>
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
-
-            <TextView
-                android:id="@+id/tagLine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="65dp"
-                android:text="Ruteando App - Scharff"
-                android:textColor="@color/white"
-                android:textSize="24dp"
-                android:textStyle="italic"
-                app:fontFamily="@font/carnasitalic" />
-
-        </RelativeLayout>
-    </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

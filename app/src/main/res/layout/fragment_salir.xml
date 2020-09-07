@@ -7,11 +7,21 @@
     android:orientation="vertical"
     tools:context=".Controlador.Salir">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Titulo"
+        android:text="Mis datos"
+        android:textSize="40dp"
+        android:fontFamily="@font/carnasthin"
+        android:textColor="@color/grey"
 
+        >
+    </TextView>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="20dp">
         <ImageView
             android:id="@+id/imgcolaborador"
             android:layout_width="120dp"
@@ -25,6 +35,7 @@
             android:layout_toEndOf="@+id/imgcolaborador"
             android:layout_toRightOf="@+id/imgcolaborador"
             android:text="Juan Hervas"
+            android:fontFamily="@font/carnasbold"
             android:textColor="@color/black"
             android:textSize="24dp" />
 
@@ -34,22 +45,157 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/imgcolaborador"
             android:layout_toRightOf="@+id/imgcolaborador"
-            android:text="Practicante de sistemas"
+            android:text="Colaborador de Scharff"
             android:textColor="@color/black"
+            android:fontFamily="@font/carnasbold"
             android:layout_below="@+id/nombre"/>
 
 </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imgworking"
-        android:layout_width="260dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="60dp"
-        android:layout_gravity="center"
-        android:background="@drawable/workingf"></ImageView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/NombreUsuarioSInfo"
+                    android:text="Nombre(s) :"
+                    android:textColor="@color/grey"
+                    android:textSize="26dp"
+                    android:fontFamily="@font/carnasthin"
+                    android:layout_alignParentStart="true"
+                    ></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ApellidoUsuarioSInfo"
+                    android:text="Apellido(s): "
+                    android:textColor="@color/grey"
+                    android:textSize="26dp"
+                    android:fontFamily="@font/carnasthin"
+                    android:layout_below="@+id/NombreUsuarioSInfo"
+                    android:layout_alignParentStart="true"
+                    android:paddingTop="35dp"
+                    ></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/PuntosUsuarioSInfo"
+                    android:textColor="@color/grey"
+                    android:textSize="26dp"
+                    android:text="Puntos totales: "
+                    android:fontFamily="@font/carnasthin"
+                    android:layout_below="@+id/ApellidoUsuarioSInfo"
+                    android:layout_alignParentStart="true"
+                    android:paddingTop="35dp"
+                    ></TextView>
+                <TextView
+                    android:id="@+id/RankingUsuarioSInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mi ranking: "
+                    android:textSize="26dp"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/carnasthin"
+                    android:layout_below="@+id/PuntosUsuarioSInfo"
+                    android:layout_alignParentStart="true"
+                    android:paddingTop="35dp"
+                    >
+
+                </TextView>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/NombreUsuarioS"
+                    android:text="Juan Alberto"
+                    android:textColor="@color/black"
+                    android:textSize="26dp"
+                    android:fontFamily="@font/carnasthin"
+                    android:layout_alignParentEnd="true"
+                    android:paddingEnd="10dp"
+
+                    ></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ApellidoUsuarioS"
+                    android:text="Hervas Valderrama"
+                    android:textColor="@color/black"
+                    android:textSize="26dp"
+                    android:fontFamily="@font/carnasthin"
+                    android:layout_below="@+id/NombreUsuarioS"
+                    android:layout_alignParentEnd="true"
+                    android:paddingTop="35dp"
+                    android:paddingEnd="10dp"
+                    ></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/PuntosUsuarioS"
+                    android:textColor="@color/black"
+                    android:textSize="26dp"
+                    android:text="∞"
+                    android:fontFamily="@font/carnasthin"
+                    android:layout_below="@+id/ApellidoUsuarioS"
+                    android:layout_alignParentEnd="true"
+                    android:paddingTop="35dp"
+                    android:paddingEnd="10dp"
+                    ></TextView>
+                <TextView
+                    android:id="@+id/RankingUsuarioS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="[0]"
+                    android:fontFamily="@font/carnasthin"
+                    android:textSize="26dp"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/PuntosUsuarioS"
+                    android:layout_alignParentEnd="true"
+                    android:paddingTop="35dp"
+                    android:paddingEnd="10dp"
+                    >
+
+                </TextView>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
 
     <Button
-        android:id="@+id/contactar"
+        android:id="@+id/contactos"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -57,7 +203,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="68dp"
         android:background="@drawable/rounded_corneramarillo"
-        android:text="Contáctanos" />
+        android:onClick="onClick"
+        android:text="Contáctanos"
+        tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/salir"
@@ -67,7 +215,9 @@
         android:layout_marginVertical="29dp"
         android:background="@drawable/rounded_corneramarillo"
         android:gravity="center"
-        android:text="Cerrar sesión" />
+        android:onClick="onClick"
+        android:text="Cerrar sesión"
+        tools:ignore="OnClick" />
 
 
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.example.ruteandoapp.io;
 
+import com.example.ruteandoapp.model.ListarRetos;
+import com.example.ruteandoapp.model.RankingUsuario;
 import com.example.ruteandoapp.model.UsuarioPts;
 import com.example.ruteandoapp.model.UsuarioRanking;
 import com.example.ruteandoapp.model.Vars;
@@ -23,5 +25,11 @@ public interface APIRetrofitInterface {
 
     @POST("UsuarioPts")
     Call<UsuarioPts> usuariopts(@Body UsuarioPts usuarioPts);
+
+    @POST("ListarRetos")
+    Call<List<ListarRetos>> listarRetos(@Body ListarRetos listarRetos);
+
+    @POST("RankingUsuario")
+    Call<RankingUsuario> rankingUsuario(@Body RankingUsuario rankingUsuario);
 
 }
