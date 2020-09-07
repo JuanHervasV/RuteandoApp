@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,7 @@ public class Login extends AppCompatActivity{
     private TextView PasswordText;
     private String Usuario;
     private String Pass;
+    private long mLastClickTime = 0;
 
 
     @Override
@@ -53,6 +55,7 @@ public class Login extends AppCompatActivity{
 
         LoginText = findViewById(R.id.editText_login_username);
         PasswordText = findViewById(R.id.editText_login_password);
+
 
         //TestApi = findViewById(R.id.TestApi);
         Retrofit retrofit = new Retrofit.Builder()
@@ -83,6 +86,11 @@ public class Login extends AppCompatActivity{
 
     public void onClick(View v) {
         LoadingThing loadingThing = new LoadingThing(Login.this);
+
+        if (SystemClock.elapsedRealtime() - mLastClickTime < 2000) {
+            return;
+        }
+        mLastClickTime = SystemClock.elapsedRealtime();
         switch (v.getId()) {
             case R.id.button_login_login:
                 //loadingThing.startLoadingAnimation();

@@ -1,14 +1,16 @@
 package com.example.ruteandoapp.Entidades;
 
+import android.graphics.drawable.Drawable;
+
 public class RetosInfo {
     private String nombre;
     private String descrip;
-    private int imagen;
+    private Drawable imagen;
 
-    public RetosInfo(String nombre, String descrip) {
+    public RetosInfo(String nombre, String descrip, Drawable imagen) {
         this.nombre = nombre;
         this.descrip = descrip;
-        //this.imagen = imagen;
+        this.imagen = imagen;
     }
 
     public String getNombre() {
@@ -27,7 +29,7 @@ public class RetosInfo {
         this.descrip = descrip;
     }
 
-    //public int getImagen() {      return imagen;    }
+    public Drawable getImagen() {      return imagen;    }
 
-    //public void setImagen(int imagen) {      this.imagen = imagen;   }
+    public void setImagen(Drawable imagen) {      this.imagen = imagen;   }
 }

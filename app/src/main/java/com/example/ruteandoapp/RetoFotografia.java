@@ -89,6 +89,8 @@ public class RetoFotografia extends AppCompatActivity {
     }
 
     private void Fileuploader() {
+        LoadingThing loadingThing = new LoadingThing(RetoFotografia.this);
+        loadingThing.startLoadingAnimation();
         StorageReference Ref=mStorageRef.child(System.currentTimeMillis()+"."+getExtension(imguri));
         uploadTask = Ref.putFile(imguri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -105,15 +107,16 @@ public class RetoFotografia extends AppCompatActivity {
                                 Log.i("URL",profileImageUrl);
                             }
                         });
-
+                        loadingThing.dismissDialog();
                         finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        // ...
+                        Toast.makeText(RetoFotografia.this, "Fallo al subir imagen.",Toast.LENGTH_LONG).show();
+                        loadingThing.dismissDialog();
+                        finish();
                     }
                 });
     }

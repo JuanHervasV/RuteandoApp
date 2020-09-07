@@ -2,6 +2,7 @@ package com.example.ruteandoapp.Controlador;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,11 +62,11 @@ public class RetosAdapter extends RecyclerView.Adapter<RetosAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String nombre = model.get(position).getNombre();
         String descrip = model.get(position).getDescrip();
-        //int imagen = model.get(position).getImagen();
+        Drawable imagen = model.get(position).getImagen();
 
         holder.nombres.setText(nombre);
         holder.descrip.setText(descrip);
-        //holder.imagen.setImageResource(imagen);
+        holder.imagen.setImageDrawable(imagen);
     }
 
     @Override
@@ -101,7 +102,7 @@ public class RetosAdapter extends RecyclerView.Adapter<RetosAdapter.ViewHolder> 
             nombres = itemView.findViewById(R.id.idNombre);
             descrip = itemView.findViewById(R.id.idDescrip);
             imagen = itemView.findViewById(R.id.idImagen);
-            cargarImagenes();
+            //cargarImagenes();
             //String imgs = "https://i.imgur.com/twfE3bd.jpg";
             //Picasso.get().load(imgs).placeholder(R.drawable.scharff_logo_blanco).into(imagen);
 
@@ -126,6 +127,7 @@ public class RetosAdapter extends RecyclerView.Adapter<RetosAdapter.ViewHolder> 
                         String imgs = abc.Image_URL();
                         //Lib Picasso
                         Picasso.get().load(imgs).placeholder(R.drawable.scharff_logo_blanco).into(imagen);
+                        Drawable myDrawable = imagen.getDrawable();
                         return;
                     }
 

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.os.StrictMode;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -68,6 +69,7 @@ public class Retos extends Fragment {
     private APIRetrofitInterface jsonPlaceHolderApi;
     ImageView image;
     Dialog mDialog;
+    private long mLastClickTime = 0;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -265,14 +267,16 @@ public class Retos extends Fragment {
                                  ListarRetos abc = rptas.get(i);
                                  String nombre = abc.Reto_Nombre();
                                  String descrip = abc.Reto_Descripcion();
-                                 //String imgs = abc.Image_URL();
+
+                                 String imgsf = abc.Image_URL();
                                  String imgs = "http://l.yimg.com/a/i/us/we/52/21.gif";
                                  //image.setBackgroundResource(R.drawable.scharff_logo_blanco);
 
                                  //Lib Picasso
-                                 //Picasso.get().load(imgs).placeholder(R.drawable.scharff_logo_blanco).into(image);
+                                 Picasso.get().load(imgsf).placeholder(R.drawable.scharff_logo_blanco).placeholder(R.drawable.logomediano).into(image);
+                                 Drawable myDrawable = image.getDrawable();
 
-                                 listaPersonas.add(new RetosInfo("" + nombre, "" + descrip + ""));
+                                 listaPersonas.add(new RetosInfo("" + nombre, "" + descrip + "", myDrawable));
                                  recyclerViewRetos.setAdapter(rankingAdapter);
                                  SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
                                  SharedPreferences.Editor editor = preferences.edit();
@@ -299,6 +303,11 @@ public class Retos extends Fragment {
         rankingAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 2000) {
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
 
                 String nombrereeto = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getNombre();
                 String descripreeto = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getDescrip();

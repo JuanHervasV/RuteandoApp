@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 public class ContactarF extends AppCompatActivity {
     private Button enviar;
     private EditText edt;
+    private long mLastClickTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,10 @@ public class ContactarF extends AppCompatActivity {
         }
     }
     public void contactarwsp(){
+        if (SystemClock.elapsedRealtime() - mLastClickTime < 2000) {
+            return;
+        }
+        mLastClickTime = SystemClock.elapsedRealtime();
         enviar = findViewById(R.id.btnenviar);
         edt = findViewById(R.id.editTextMulti);
         String contenido = edt.getText().toString();
