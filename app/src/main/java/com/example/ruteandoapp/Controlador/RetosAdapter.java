@@ -93,11 +93,11 @@ public class RetosAdapter extends RecyclerView.Adapter<RetosAdapter.ViewHolder> 
             super(itemView);
 
             //TestApi = findViewById(R.id.TestApi);
-            Retrofit retrofit = new Retrofit.Builder()
+            /*Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://200.37.50.53/ApiRuteando/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-            jsonPlaceHolderApi = retrofit.create(APIRetrofitInterface.class);
+            jsonPlaceHolderApi = retrofit.create(APIRetrofitInterface.class);*/
 
             nombres = itemView.findViewById(R.id.idNombre);
             descrip = itemView.findViewById(R.id.idDescrip);

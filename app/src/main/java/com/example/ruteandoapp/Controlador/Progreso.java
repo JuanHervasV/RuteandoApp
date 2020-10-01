@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class Progreso extends Fragment {
     private TextView points;
     Dialog mDialog;
     private FrameLayout fondoprogreso;
+    private ImageView backprog;
 
 
     // TODO: Rename and change types of parameters
@@ -92,6 +94,7 @@ public class Progreso extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FrameLayout fondoprogreso = getActivity().findViewById(R.id.progresofondo);
+        ImageView backprog = getActivity().findViewById(R.id.backimg);
 
         // Inflate the layout for this fragment
         Retrofit retrofit = new Retrofit.Builder()
@@ -190,99 +193,101 @@ public class Progreso extends Fragment {
                     editor.putInt("points", punts);
                     editor.commit();
 
-                    FrameLayout fondoprogreso = getActivity().findViewById(R.id.progresofondo);
+                    FrameLayout ff = getActivity().findViewById(R.id.progresofondo);
+                    ImageView fondoprogreso = getActivity().findViewById(R.id.backimg);
+
                     if(punts==1){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback1);
+                        fondoprogreso.setBackgroundResource(R.drawable.back2);
                     }
                     else if(punts==2){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback2);
+                        fondoprogreso.setBackgroundResource(R.drawable.back3);
                     }
                     else if(punts==3){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback3);
+                        fondoprogreso.setBackgroundResource(R.drawable.back4);
                     }
                     else if(punts==4){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback4);
+                        fondoprogreso.setBackgroundResource(R.drawable.back5);
                     }
                     else if(punts==5){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback5);
+                        fondoprogreso.setBackgroundResource(R.drawable.back5);
                     }
                     else if(punts==6){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback6);
+                        fondoprogreso.setBackgroundResource(R.drawable.back6);
                     }
                     else if(punts==7){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback7);
+                        fondoprogreso.setBackgroundResource(R.drawable.back7);
                     }
                     else if(punts==8){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback8);
+                        fondoprogreso.setBackgroundResource(R.drawable.back8);
                     }
                     else if(punts==9){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback9);
+                        fondoprogreso.setBackgroundResource(R.drawable.back9);
                     }
                     else if(punts==10){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback10);
+                        fondoprogreso.setBackgroundResource(R.drawable.back10);
                     }
                     else if(punts==11){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback11);
+                        fondoprogreso.setBackgroundResource(R.drawable.back11);
                     }
                     else if(punts==12){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback12);
+                        fondoprogreso.setBackgroundResource(R.drawable.back12);
                     }
                     else if(punts==13){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback13);
+                        fondoprogreso.setBackgroundResource(R.drawable.back13);
                     }
                     else if(punts==14){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback14);
+                        fondoprogreso.setBackgroundResource(R.drawable.back14);
                     }
                     else if(punts==15){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback15);
+                        fondoprogreso.setBackgroundResource(R.drawable.back14);
                     }
                     else if(punts==16){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback16);
+                        fondoprogreso.setBackgroundResource(R.drawable.back15);
                     }
                     else if(punts==17){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback17);
+                        fondoprogreso.setBackgroundResource(R.drawable.back16);
                     }
                     else if(punts==18){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback18);
+                        fondoprogreso.setBackgroundResource(R.drawable.back17);
                     }
                     else if(punts==19){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback19);
+                        fondoprogreso.setBackgroundResource(R.drawable.back18);
                     }
                     else if(punts==20){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback20);
+                        fondoprogreso.setBackgroundResource(R.drawable.back19);
                     }
                     else if(punts==21){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback21);
+                        fondoprogreso.setBackgroundResource(R.drawable.back20);
                     }
                     else if(punts==22){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback22);
+                        fondoprogreso.setBackgroundResource(R.drawable.back21);
                     }
                     else if(punts==23){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback23);
+                        fondoprogreso.setBackgroundResource(R.drawable.back22);
                     }
                     else if(punts==24){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback24);
+                        fondoprogreso.setBackgroundResource(R.drawable.back23);
                     }
                     else if(punts==25){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback25);
+                        fondoprogreso.setBackgroundResource(R.drawable.back23);
                     }
                     else if(punts==26){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback26);
+                        fondoprogreso.setBackgroundResource(R.drawable.back24);
                     }
                     else if(punts==27){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback27);
+                        fondoprogreso.setBackgroundResource(R.drawable.back25);
                     }
                     else if(punts==28){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback28);
+                        fondoprogreso.setBackgroundResource(R.drawable.back26);
                     }
                     else if(punts==29){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback29);
+                        fondoprogreso.setBackgroundResource(R.drawable.back27);
                     }
                     else if(punts==30){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback30);
+                        fondoprogreso.setBackgroundResource(R.drawable.back27);
                     }
                     else if(punts==0){
-                        fondoprogreso.setBackgroundResource(R.drawable.progresoback0);
+                        fondoprogreso.setBackgroundResource(R.drawable.back1);
                     }
 
                     //checkpoints();

@@ -7,7 +7,9 @@ import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -97,6 +99,11 @@ public class Ranking extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         rankingAdapter = new RankingAdapter(getContext(), listaPersonas);
         recyclerView.setAdapter(rankingAdapter);
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_cornerneutral));
+        recyclerView.addItemDecoration(itemDecorator);
+
         rankingAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -220,7 +227,7 @@ public class Ranking extends Fragment {
                     for (int i = 0 ; i<tamanio;i++){
                             int s = i;
                         if (s==0){
-                            int image = R.drawable.n1;
+                            int image = R.drawable.uno;
                             UsuarioRanking abc = rptas.get(i);
                             int puntos = abc.Puntos();
                             String nombre = abc.Usuario();
@@ -231,7 +238,7 @@ public class Ranking extends Fragment {
 
                         }
                         else if(s==1){
-                            int image = R.drawable.n2;
+                            int image = R.drawable.dos;
                             UsuarioRanking abc = rptas.get(i);
                             int puntos = abc.Puntos();
                             String nombre = abc.Usuario();
@@ -243,7 +250,7 @@ public class Ranking extends Fragment {
 
                         }
                         else if (s==2){
-                            int image = R.drawable.n3;
+                            int image = R.drawable.tres;
                             UsuarioRanking abc = rptas.get(i);
                             int puntos = abc.Puntos();
                             String nombre = abc.Usuario();
@@ -254,7 +261,7 @@ public class Ranking extends Fragment {
 
                         }
                         else if(s==3){
-                            int image = R.drawable.n4;
+                            int image = R.drawable.cuatro;
                             UsuarioRanking abc = rptas.get(i);
                             int puntos = abc.Puntos();
                             String nombre = abc.Usuario();
@@ -265,7 +272,7 @@ public class Ranking extends Fragment {
 
                         }
                         else if(s==4){
-                            int image = R.drawable.n5;
+                            int image = R.drawable.img5;
                             UsuarioRanking abc = rptas.get(i);
                             int puntos = abc.Puntos();
                             String nombre = abc.Usuario();

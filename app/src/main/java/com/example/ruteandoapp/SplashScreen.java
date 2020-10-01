@@ -28,29 +28,29 @@ public class SplashScreen extends AppCompatActivity {
     TextView nombreapp;
     ImageView balloon;
     //Animations
-    Animation topAnimantion,bottomAnimation,middleAnimation;
+    //Animation topAnimantion,bottomAnimation,middleAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseMessaging.getInstance().subscribeToTopic("RETOS");
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
         //Hooks
 
-        balloon = findViewById(R.id.ballon);
-        nombreapp = findViewById(R.id.nombreapp);
+        //balloon = findViewById(R.id.ballon);
+        //nombreapp = findViewById(R.id.nombreapp);
 
         //Animation Calls
-        topAnimantion = AnimationUtils.loadAnimation(this, R.anim.top_animation);
-        bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
-        middleAnimation = AnimationUtils.loadAnimation(this, R.anim.middle_animation);
+        //topAnimantion = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        //bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+        //middleAnimation = AnimationUtils.loadAnimation(this, R.anim.middle_animation);
 
         //-----------Setting Animations to the elements of Splash
 
 
-        balloon.setAnimation(topAnimantion);
-        nombreapp.setAnimation(bottomAnimation);
+        //balloon.setAnimation(topAnimantion);
+        //nombreapp.setAnimation(bottomAnimation);
 
         //Splash Screen Code to call new Activity after some time
         new Handler().postDelayed(new Runnable() {

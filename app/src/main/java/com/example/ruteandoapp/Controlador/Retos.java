@@ -11,7 +11,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -212,13 +214,17 @@ public class Retos extends Fragment {
         View view2 = inflater.inflate(R.layout.retos_list, container, false);
         recyclerViewRetos = view.findViewById(R.id.recyclerranking);
         image =view2.findViewById(R.id.idImagen);
-        image.setBackgroundResource(R.drawable.scharff_logo_blanco);
+        image.setBackgroundResource(R.drawable.fotoreto);
         //TestApi = findViewById(R.id.TestApi);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://200.37.50.53/ApiRuteando/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         jsonPlaceHolderApi = retrofit.create(APIRetrofitInterface.class);
+
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_cornerceleste));
+        recyclerViewRetos.addItemDecoration(itemDecorator);
 
         listaPersonas = new ArrayList<>();
         mDialog = new Dialog(getActivity());
@@ -267,16 +273,17 @@ public class Retos extends Fragment {
                                  ListarRetos abc = rptas.get(i);
                                  String nombre = abc.Reto_Nombre();
                                  String descrip = abc.Reto_Descripcion();
+                                 int retoid = abc.Reto_id();
 
                                  String imgsf = abc.Image_URL();
                                  String imgs = "http://l.yimg.com/a/i/us/we/52/21.gif";
                                  //image.setBackgroundResource(R.drawable.scharff_logo_blanco);
 
                                  //Lib Picasso
-                                 Picasso.get().load(imgsf).placeholder(R.drawable.scharff_logo_blanco).placeholder(R.drawable.logomediano).into(image);
+                                 Picasso.get().load(imgsf).placeholder(R.drawable.fotoreto).into(image);
                                  Drawable myDrawable = image.getDrawable();
 
-                                 listaPersonas.add(new RetosInfo("" + nombre, "" + descrip + "", myDrawable));
+                                 listaPersonas.add(new RetosInfo("" + nombre, "" + descrip + "", myDrawable, retoid));
                                  recyclerViewRetos.setAdapter(rankingAdapter);
                                  SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
                                  SharedPreferences.Editor editor = preferences.edit();
@@ -311,6 +318,7 @@ public class Retos extends Fragment {
 
                 String nombrereeto = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getNombre();
                 String descripreeto = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getDescrip();
+                int retoidd = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getRetoID();
 
                 int tamanio = listaPersonas.size();
                 RetosInfo abc = listaPersonas.get(1);
@@ -332,17 +340,29 @@ public class Retos extends Fragment {
                             String nombre = abc.Reto_Nombre();
                             String descrip = abc.Reto_Descripcion();
                             String tipo = abc.Reto_Tipo();
+                            int retoid = abc.Reto_id();
+
                             if (tipo != "1000") {
                                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
                                 SharedPreferences.Editor editor = preferences.edit();
                                 editor.putString("nombrereto", nombrereeto);
                                 editor.putString("descripreto", descripreeto);
-                                editor.putString("tiporeto", tipo);
+                                //editor.putInt("tiporeto", retoidd);
                                 editor.commit();
-                                Intent intent = new Intent();
-                                intent.setClass(getActivity(), RetoFotografia.class);
+
+                                Intent ia = new Intent();
+
+                                //Create the bundle
+                                Bundle bundlereto = new Bundle();
+                                //Add your data from getFactualResults method to bundle
+                                bundlereto.putInt("retoid", retoidd);
+                                //Add the bundle to the intent
+                                ia.putExtras(bundlereto);
+                                //startActivity(i);
+
+                                ia.setClass(getActivity(), RetoFotografia.class);
                                 //Toast.makeText(getContext(), ""+nombre,Toast.LENGTH_LONG).show();
-                                getActivity().startActivity(intent);
+                                getActivity().startActivity(ia);
 
 
                             }

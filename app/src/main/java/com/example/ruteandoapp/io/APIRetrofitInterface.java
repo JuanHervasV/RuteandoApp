@@ -1,9 +1,13 @@
 package com.example.ruteandoapp.io;
 
+import com.example.ruteandoapp.model.DarPuntos;
+import com.example.ruteandoapp.model.DarSoloPuntos;
+import com.example.ruteandoapp.model.InsertarToken;
 import com.example.ruteandoapp.model.ListarRetos;
 import com.example.ruteandoapp.model.RankingUsuario;
 import com.example.ruteandoapp.model.UsuarioPts;
 import com.example.ruteandoapp.model.UsuarioRanking;
+import com.example.ruteandoapp.model.ValidarPuntos;
 import com.example.ruteandoapp.model.Vars;
 import java.util.List;
 
@@ -32,4 +36,15 @@ public interface APIRetrofitInterface {
     @POST("RankingUsuario")
     Call<RankingUsuario> rankingUsuario(@Body RankingUsuario rankingUsuario);
 
+    @POST("DarPuntos")
+    Call<DarPuntos> darPuntos(@Body DarPuntos darPuntos);
+
+    @POST("DarSoloPuntos")
+    Call<DarSoloPuntos> darSoloPuntos(@Body DarSoloPuntos darSoloPuntos);
+
+    @POST("ValidarPuntos")
+    Call<ValidarPuntos> validarPuntos(@Body ValidarPuntos validarPuntos);
+
+    @POST("InsertarToken")
+    Call<InsertarToken> insertarToken(@Body InsertarToken insertarToken);
 }

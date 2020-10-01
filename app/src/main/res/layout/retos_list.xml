@@ -21,7 +21,7 @@
             android:id="@+id/idImagen"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/retratodemo"
+            android:src="@drawable/fotoreto"
             android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"/>
 
@@ -34,9 +34,9 @@
             android:textColor="@color/black"
             android:layout_toEndOf="@+id/idImagen"
             android:layout_toRightOf="@+id/idImagen"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:fontFamily="@font/carnasthin"/>
+            android:fontFamily="@font/carnasbold"/>
 
         <TextView
             android:id="@+id/idDescrip"
@@ -48,9 +48,9 @@
             android:layout_toRightOf="@+id/idImagen"
             android:layout_toEndOf="@+id/idImagen"
             android:layout_below="@+id/idNombre"
-            android:textSize="18dp"
+            android:textSize="15sp"
             android:textStyle="bold"
-            android:fontFamily="@font/carnasthin"/>
+            android:fontFamily="@font/carnasbold"/>
 
     </RelativeLayout>
 

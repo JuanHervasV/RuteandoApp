@@ -4,78 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundlogo_morado"
+    android:background="@drawable/fondo"
     tools:context=".ContactarF">
 
-
-    <TextView
-        android:id="@+id/textprin"
+    <ImageView
+        android:id="@+id/imgtitu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="0dp"
-        android:textAlignment="center"
-        android:textSize="38dp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:textStyle="bold"
-
-        android:text="Contáctanos"
-        android:fontFamily="@font/carnasbold"
+        android:src="@drawable/titu5"
         />
 
     <TextView
         android:id="@+id/textinfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textprin"
+        android:layout_below="@+id/imgtitu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
-
-        android:layout_marginTop="89dp"
-        android:fontFamily="@font/carnasthin"
-        android:text="Escríbenos tu duda y te responderemos lo más pronto posible 💬"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/carnasbold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="¡Escríbenos tu duda y te enviaremos a nuestro wsp 💬!"
         android:textColor="@color/black"
-        android:textSize="18dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editTextMulti"
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
+        android:layout_height="180dp"
         android:layout_below="@+id/textinfo"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_cornerneutral"
+        android:background="@drawable/d1"
+        android:fontFamily="@font/carnasbold"
         android:ems="10"
-        android:hint="Escribe aquí tu consulta"
+        android:hint="¡Escribe aquí tu consulta!"
         android:inputType="textMultiLine"
         android:text=""
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         android:textSize="18dp" />
 
     <Button
         android:id="@+id/btnenviar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="65dp"
         android:layout_below="@+id/editTextMulti"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
-        android:background="@drawable/rounded_cornermorado"
+        android:background="@drawable/enviar"
         android:onClick="onClick"
-        android:text="Enviar Mensaje"
         android:textAlignment="center" />
 
 </RelativeLayout>

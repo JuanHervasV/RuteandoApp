@@ -7,48 +7,63 @@
     android:orientation="vertical"
     tools:context=".Maintab">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/progreso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Progreso"
-            android:icon="@drawable/ic_baseline_more_horiz_24"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/retos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Retos"
-            android:icon="@drawable/icono_retos"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/ranking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ranking"
-            android:icon="@drawable/ranking_icon"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/salir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Configuración"
-            android:icon="@drawable/ic_baseline_exit_to_app_24"/>
-
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
+    <RelativeLayout
+        android:id="@+id/rela"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tabs">
+
+        </androidx.viewpager.widget.ViewPager>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/rounded_cornerneutral">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/progreso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/footer2"
+                android:text="progreso" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/retos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/footer1"
+                android:text="retos" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/footer3"
+                android:text="puestos" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/footer4"
+                android:text="configuración" />
+        </com.google.android.material.tabs.TabLayout>
 
 
-    </androidx.viewpager.widget.ViewPager>
+    </RelativeLayout>
+
+
 </LinearLayout>

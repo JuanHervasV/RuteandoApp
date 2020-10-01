@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -20,6 +21,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ruteandoapp.Controlador.Retos;
+import com.example.ruteandoapp.io.APIRetrofitInterface;
+import com.example.ruteandoapp.model.DarPuntos;
+import com.example.ruteandoapp.model.ValidarPuntos;
+import com.example.ruteandoapp.model.Vars;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,6 +37,12 @@ import com.google.firebase.storage.UploadTask;
 
 import java.net.URI;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class RetoFotografia extends AppCompatActivity {
 
     Button ch, up;
@@ -40,6 +51,7 @@ public class RetoFotografia extends AppCompatActivity {
     public Uri imguri;
     private StorageTask uploadTask;
     private TextView tituloReto, descripReto;
+    private APIRetrofitInterface jsonPlaceHolderApi;
 
 
     @Override
@@ -47,14 +59,20 @@ public class RetoFotografia extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reto_fotografia);
 
+        //TestApi = findViewById(R.id.TestApi);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://200.37.50.53/ApiRuteando/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        jsonPlaceHolderApi = retrofit.create(APIRetrofitInterface.class);
+
         mStorageRef = FirebaseStorage.getInstance().getReference("Images");
-        FirebaseMessaging.getInstance().subscribeToTopic("RETOS");
+
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
         int ID = preferences.getInt("id", 2);
         String tituloreto = preferences.getString("nombrereto", "NombreReto");
         String descripreto = preferences.getString("descripreto", "DescripReto");
-        String tiporeto = preferences.getString("tiporeto", "TipoReto");
 
         ch = findViewById(R.id.escogerfoto);
         up = findViewById(R.id.subirfoto);
@@ -92,33 +110,68 @@ public class RetoFotografia extends AppCompatActivity {
         LoadingThing loadingThing = new LoadingThing(RetoFotografia.this);
         loadingThing.startLoadingAnimation();
         StorageReference Ref=mStorageRef.child(System.currentTimeMillis()+"."+getExtension(imguri));
+
         uploadTask = Ref.putFile(imguri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
+                        Bundle bundlereto = getIntent().getExtras();
+
+                        //Extract the data…
+                        int RetoId = bundlereto.getInt("retoid");
+
+                        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                        int ID = preferences.getInt("id", 2);
 
                         Ref.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                             @Override
                             public void onComplete(@NonNull Task<Uri> task) {
                                 //Este es el link de la imagen
-                                String profileImageUrl=task.getResult().toString();
-                                Log.i("URL",profileImageUrl);
+                                String FotoURL=task.getResult().toString();
+                                //Log.i("URL",FotoURL);
+                                ValidarPuntos validarPuntos = new ValidarPuntos(RetoId,ID,FotoURL);
+                                Call<ValidarPuntos> call = jsonPlaceHolderApi.validarPuntos(validarPuntos);
+                                call.enqueue(new Callback<ValidarPuntos>() {
+                                    @Override
+                                    public void onResponse(Call<ValidarPuntos> call, Response<ValidarPuntos> response) {
+
+                                        if (!response.isSuccessful()) {
+                                            //mJsonTxtView.setText("Codigo:" + response.code());
+                                            Toast.makeText(getApplicationContext(), "Usuario/Contraseña incorrecta.", Toast.LENGTH_SHORT).show();
+                                            loadingThing.dismissDialog();
+                                            return;
+                                        }
+
+                                        ValidarPuntos postsResponse = response.body();
+                                        Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
+                                        loadingThing.dismissDialog();
+                                        finish();
+
+                                    }
+                                    @Override
+                                    public void onFailure(Call<ValidarPuntos> call, Throwable t) {
+                                        Toast.makeText(getApplicationContext(), "Fallo al ingresar los datos, compruebe su red.", Toast.LENGTH_SHORT).show();
+                                        loadingThing.dismissDialog();
+                                        //mJsonTxtView.setText(t.getMessage());
+                                        return;
+                                    }
+                                });
+                            }
+                        })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception exception) {
+                                        Toast.makeText(RetoFotografia.this, "Fallo al subir imagen.",Toast.LENGTH_LONG).show();
+                                        loadingThing.dismissDialog();
+                                        finish();
+                                    }
+                                });
                             }
                         });
-                        loadingThing.dismissDialog();
-                        finish();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        Toast.makeText(RetoFotografia.this, "Fallo al subir imagen.",Toast.LENGTH_LONG).show();
-                        loadingThing.dismissDialog();
-                        finish();
-                    }
-                });
+
+
     }
     private void Filechooser() {
         Intent intent= new Intent();

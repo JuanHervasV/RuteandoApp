@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ruteandoapp.model.InsertarToken;
 import com.example.ruteandoapp.model.Vars;
 import com.example.ruteandoapp.io.APIRetrofitInterface;
 import com.google.firebase.FirebaseApp;
@@ -51,7 +52,8 @@ public class Login extends AppCompatActivity{
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         //Toast.makeText(this, ""+refreshedToken, Toast.LENGTH_SHORT).show();
         String TAG = "Login.this";
-        Log.i(TAG,"Mi token es: " + refreshedToken);
+        FirebaseMessaging.getInstance().subscribeToTopic("RETOS");
+        //Log.i(TAG,"Mi token es: " + refreshedToken);
 
         LoginText = findViewById(R.id.editText_login_username);
         PasswordText = findViewById(R.id.editText_login_password);
@@ -69,8 +71,8 @@ public class Login extends AppCompatActivity{
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
         int ID = preferences.getInt("id", 2);
-        String nombre = preferences.getString("usuario", "nombreusuario");
-        String apellido = preferences.getString("apellido", "apellidousuario");
+        String nombre = preferences.getString("usuariosss", "nombreusuario");
+        String apellido = preferences.getString("apellidosss", "apellidousuario");
         //Toast.makeText(getApplicationContext(), " "+ID, Toast.LENGTH_SHORT).show();
         if(nombre!="nombreusuario" && ID!=2 && apellido!="apellidousuario"){
             Intent i = new Intent(Login.this, Maintab.class);
@@ -126,6 +128,34 @@ public class Login extends AppCompatActivity{
                 int idusu = postsResponse.UsuId();
                 String nombre = postsResponse.Nombre();
                 String apellido = postsResponse.Apep();
+
+                // Get updated InstanceID token.
+                String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+
+                InsertarToken insertarToken = new InsertarToken(idusu,refreshedToken);
+                Call<InsertarToken> callo = jsonPlaceHolderApi.insertarToken(insertarToken);
+                callo.enqueue(new Callback<InsertarToken>() {
+                    @Override
+                    public void onResponse(Call<InsertarToken> call, Response<InsertarToken> response) {
+
+                        if (!response.isSuccessful()) {
+                            //mJsonTxtView.setText("Codigo:" + response.code());
+                            Toast.makeText(getApplicationContext(), "Usuario/Contraseña incorrecta.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        InsertarToken postsResponse = response.body();
+
+                        //Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
+                        //Guardar Login SharedPreferences
+
+                    }
+                    @Override
+                    public void onFailure(Call<InsertarToken> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Fallo al ingresar los datos, compruebe su red.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                });
+
                 Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
                 //Guardar Login SharedPreferences
                 SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
@@ -133,7 +163,9 @@ public class Login extends AppCompatActivity{
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putInt("id", idusu);
                 editor.putString("usuario", nombre);
+                editor.putString("usuariosss", nombre);
                 editor.putString("apellido", apellido);
+                editor.putString("apellidosss", apellido);
                 editor.commit();
                 loadingThing.dismissDialog();
                 Intent i = new Intent(Login.this, Maintab.class);
@@ -152,4 +184,6 @@ public class Login extends AppCompatActivity{
             }
         });
     }
+
+
 }
