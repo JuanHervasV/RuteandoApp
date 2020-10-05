@@ -9,9 +9,12 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -35,6 +38,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.net.URI;
 
 import retrofit2.Call;
@@ -52,6 +56,8 @@ public class RetoFotografia extends AppCompatActivity {
     private StorageTask uploadTask;
     private TextView tituloReto, descripReto;
     private APIRetrofitInterface jsonPlaceHolderApi;
+    int contadorretos;
+    int retocontadorvar;
 
 
     @Override
@@ -68,11 +74,12 @@ public class RetoFotografia extends AppCompatActivity {
 
         mStorageRef = FirebaseStorage.getInstance().getReference("Images");
 
-
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
         int ID = preferences.getInt("id", 2);
         String tituloreto = preferences.getString("nombrereto", "NombreReto");
         String descripreto = preferences.getString("descripreto", "DescripReto");
+        String usuario = preferences.getString("usuario", "usuario");
+        String apellido = preferences.getString("apellido", "apellido");
 
         ch = findViewById(R.id.escogerfoto);
         up = findViewById(R.id.subirfoto);
@@ -109,10 +116,42 @@ public class RetoFotografia extends AppCompatActivity {
     private void Fileuploader() {
         LoadingThing loadingThing = new LoadingThing(RetoFotografia.this);
         loadingThing.startLoadingAnimation();
-        StorageReference Ref=mStorageRef.child(System.currentTimeMillis()+"."+getExtension(imguri));
+        //StorageReference Ref=mStorageRef.child(System.currentTimeMillis()+"."+getExtension(img));
 
-        uploadTask = Ref.putFile(imguri)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+        int ID = preferences.getInt("id", 2);
+        String tituloreto = preferences.getString("nombrereto", "NombreReto");
+        String descripreto = preferences.getString("descripreto", "DescripReto");
+        String usuario = preferences.getString("usuario", "usuario");
+        String apellido = preferences.getString("apellido", "apellido");
+        int retocontadorvaroq = preferences.getInt("retocontador",0);
+        int retocontadorvarol = retocontadorvaroq;
+
+        // Create a storage reference from our app
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference(""+usuario+""+apellido+"Retos");
+
+// Create a reference to "mountains.jpg"
+        StorageReference mountainsRef = storageRef.child(""+usuario+""+apellido+""+tituloreto+""+String.valueOf(retocontadorvarol));
+
+// Create a reference to 'images/mountains.jpg'
+        StorageReference mountainImagesRef = storageRef.child("images/retos.jpg");
+
+// While the file names are the same, the references point to different files
+        mountainsRef.getName().equals(mountainImagesRef.getName());    // true
+        mountainsRef.getPath().equals(mountainImagesRef.getPath());    // false
+        // Get the data from an ImageView as bytes
+        img.setDrawingCacheEnabled(true);
+        img.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTaske = mountainsRef.putBytes(data);
+
+        //uploadTask = Ref.putFile(imguri)
+        uploadTaske.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
@@ -125,9 +164,10 @@ public class RetoFotografia extends AppCompatActivity {
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
                         int ID = preferences.getInt("id", 2);
 
-                        Ref.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        mountainsRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                             @Override
                             public void onComplete(@NonNull Task<Uri> task) {
+
                                 //Este es el link de la imagen
                                 String FotoURL=task.getResult().toString();
                                 //Log.i("URL",FotoURL);
@@ -144,10 +184,33 @@ public class RetoFotografia extends AppCompatActivity {
                                             return;
                                         }
 
-                                        ValidarPuntos postsResponse = response.body();
-                                        Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
-                                        loadingThing.dismissDialog();
-                                        finish();
+                                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                                        int ID = preferences.getInt("id", 2);
+                                         int retocontadorvaro = preferences.getInt("retocontador",0);
+                                        if (retocontadorvaro ==0){
+                                            retocontadorvaro++;
+                                            SharedPreferences preferenceso = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                                            SharedPreferences.Editor editor = preferenceso.edit();
+                                            editor.putInt("retocontador", retocontadorvaro);
+                                            editor.commit();
+                                            ValidarPuntos postsResponse = response.body();
+                                            Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
+                                            loadingThing.dismissDialog();
+                                            finish();
+                                        }
+                                        else{
+
+                                            retocontadorvaro++;
+                                                SharedPreferences preferenceso = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                                                SharedPreferences.Editor editor = preferenceso.edit();
+                                                editor.putInt("retocontador", retocontadorvaro);
+                                                editor.commit();
+                                                ValidarPuntos postsResponse = response.body();
+                                                Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
+                                                loadingThing.dismissDialog();
+                                                finish();
+
+                                        }
 
                                     }
                                     @Override
@@ -173,20 +236,21 @@ public class RetoFotografia extends AppCompatActivity {
 
 
     }
+    final int REQUEST_IMAGE_CAPTURE = 1;
     private void Filechooser() {
-        Intent intent= new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 1);
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null)
-        {
-            imguri=data.getData();
-            img.setImageURI(imguri);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            img.setImageBitmap(imageBitmap);
         }
     }
 }

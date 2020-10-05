@@ -23,6 +23,7 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
+            style="@style/MyTabLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -30,8 +31,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/rounded_cornerneutral">
+            android:layout_marginBottom="53dp"
+            android:background="@drawable/rounded_cornerneutral"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/progreso"
@@ -58,8 +60,8 @@
                 android:id="@+id/salir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/footer4"
-                android:text="configuración" />
+                android:icon="@drawable/correomini"
+                android:text="contacto" />
         </com.google.android.material.tabs.TabLayout>
 
 

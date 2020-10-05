@@ -280,7 +280,7 @@ public class Retos extends Fragment {
                                  //image.setBackgroundResource(R.drawable.scharff_logo_blanco);
 
                                  //Lib Picasso
-                                 Picasso.get().load(imgsf).placeholder(R.drawable.fotoreto).into(image);
+                                 //Picasso.get().load(imgsf).placeholder(R.drawable.fotoreto).into(image);
                                  Drawable myDrawable = image.getDrawable();
 
                                  listaPersonas.add(new RetosInfo("" + nombre, "" + descrip + "", myDrawable, retoid));

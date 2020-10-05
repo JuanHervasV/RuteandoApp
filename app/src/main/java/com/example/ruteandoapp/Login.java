@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity{
         //Toast.makeText(getApplicationContext(), " "+ID, Toast.LENGTH_SHORT).show();
         if(nombre!="nombreusuario" && ID!=2 && apellido!="apellidousuario"){
             Intent i = new Intent(Login.this, Maintab.class);
-            Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
             startActivity(i);
             finish();
         }
@@ -156,7 +156,7 @@ public class Login extends AppCompatActivity{
                     }
                 });
 
-                Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Login.this, "Bienvenido "+nombre+" "+apellido, Toast.LENGTH_SHORT).show();
                 //Guardar Login SharedPreferences
                 SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Login.this);

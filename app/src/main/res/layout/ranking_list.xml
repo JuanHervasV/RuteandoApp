@@ -17,26 +17,40 @@
 
         <ImageView
             android:id="@+id/idImagen"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
             android:src="@drawable/retratodemo"
             android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"/>
 
         <TextView
-            android:id="@+id/idNombre"
-            android:layout_marginTop="35dp"
+        android:id="@+id/idNombre"
+        android:layout_marginTop="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/idImagen"
+        android:layout_toRightOf="@+id/idImagen"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/carnasbold"/>
+
+        <TextView
+            android:id="@+id/cargo"
+            android:layout_below="@+id/idNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre"
-            android:layout_alignParentTop="true"
+            android:text="Colaborador de Scharff"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:textColor="@color/black"
             android:layout_toEndOf="@+id/idImagen"
-            android:layout_toRightOf="@+id/idImagen"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textSize="12dp"
             android:fontFamily="@font/carnasthin"/>
 
         <TextView
@@ -44,15 +58,28 @@
             android:layout_marginTop="35dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descripción"
+            android:text="2"
             android:textColor="@color/black"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/idNombre"
-            android:layout_toEndOf="@+id/idNombre"
+            android:layout_alignParentEnd="true"
             android:textSize="20dp"
-            android:layout_marginLeft="50dp"
+            android:layout_toStartOf="@+id/estatico"
+            android:layout_marginRight="59dp"
             android:textStyle="bold"
-            android:fontFamily="@font/carnasthin"/>
+            android:fontFamily="@font/carnasbold"/>
+
+        <TextView
+            android:id="@+id/estatico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/idDescrip"
+            android:fontFamily="@font/carnasbold"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="puntos"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
     </RelativeLayout>
 

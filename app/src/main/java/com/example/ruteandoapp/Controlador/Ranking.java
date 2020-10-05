@@ -233,7 +233,7 @@ public class Ranking extends Fragment {
                             String nombre = abc.Usuario();
                             int rank = 1;
 
-                            listaPersonas.add(new Persona(""+nombre,""+puntos+" puntos",image));
+                            listaPersonas.add(new Persona(""+nombre,""+puntos,image));
                             recyclerView.setAdapter(rankingAdapter);
 
                         }
@@ -244,7 +244,7 @@ public class Ranking extends Fragment {
                             String nombre = abc.Usuario();
                             int rank = 2;
 
-                            listaPersonas.add(new Persona(""+nombre,""+puntos+" puntos",image));
+                            listaPersonas.add(new Persona(""+nombre,""+puntos,image));
                             recyclerView.setAdapter(rankingAdapter);
 
 
@@ -256,7 +256,7 @@ public class Ranking extends Fragment {
                             String nombre = abc.Usuario();
                             int rank= 3;
 
-                            listaPersonas.add(new Persona(""+nombre,""+puntos+" puntos",image));
+                            listaPersonas.add(new Persona(""+nombre,""+puntos,image));
                             recyclerView.setAdapter(rankingAdapter);
 
                         }
@@ -267,7 +267,7 @@ public class Ranking extends Fragment {
                             String nombre = abc.Usuario();
                             int rank = 4;
 
-                            listaPersonas.add(new Persona(""+nombre,""+puntos+" puntos",image));
+                            listaPersonas.add(new Persona(""+nombre,""+puntos,image));
                             recyclerView.setAdapter(rankingAdapter);
 
                         }
@@ -278,7 +278,7 @@ public class Ranking extends Fragment {
                             String nombre = abc.Usuario();
                             int rank = 5;
 
-                            listaPersonas.add(new Persona(""+nombre,""+puntos+" puntos",image));
+                            listaPersonas.add(new Persona(""+nombre,""+puntos,image));
                             recyclerView.setAdapter(rankingAdapter);
 
                         }

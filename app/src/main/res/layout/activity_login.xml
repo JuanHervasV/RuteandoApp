@@ -32,7 +32,7 @@
         android:layout_below="@+id/infotext"
         android:layout_marginStart="52dp"
         android:layout_marginTop="40dp"
-        android:text="Usuario"
+        android:text="usuario"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:fontFamily="@font/carnasbold"
@@ -67,7 +67,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
-        android:text="Contraseña"
+        android:text="contraseña"
         android:fontFamily="@font/carnasbold"
         android:textColor="@color/black"
         android:textSize="20dp" />
