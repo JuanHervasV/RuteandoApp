@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="@color/white">
+        android:background="@drawable/cornerrecylcer"
+        >
 
         <ImageView
             android:id="@+id/idImagen"
@@ -44,7 +45,7 @@
             android:layout_below="@+id/idNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Colaborador de Scharff"
+            android:text="colaborador de Scharff"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:textColor="@color/black"
@@ -52,6 +53,15 @@
             android:layout_marginTop="5dp"
             android:textSize="12dp"
             android:fontFamily="@font/carnasthin"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_toStartOf="@+id/estatico"
+            android:layout_toEndOf="@+id/idNombre"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/separador" />
 
         <TextView
             android:id="@+id/idDescrip"

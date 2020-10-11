@@ -2,107 +2,124 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ruteandoporscharff"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
+    android:background="@color/white"
     tools:context=".Login">
 
-    <TextView
-        android:id="@+id/infotext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="270dp"
-        android:fontFamily="@font/carnasbold"
-        android:text="¡habla!'"
-        android:textColor="@color/black"
-        android:textSize="30dp" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/logintop"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="71dp"
+                android:layout_marginLeft="61dp"
+                android:layout_marginTop="115dp"
+                android:layout_marginEnd="71dp"
+                android:layout_marginRight="71dp"
+                android:src="@drawable/loginttop" />
+
+            <TextView
+                android:id="@+id/infotext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/carnasbold"
+                android:foregroundGravity="center"
+                android:layout_below="@id/logintop"
+                android:gravity="center"
+                android:text="¡habla!"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
 
     <TextView
         android:id="@+id/usuusu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/infotext"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/infotext"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="50dp"
+
+        android:fontFamily="@font/carnasbold"
         android:text="usuario"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        android:fontFamily="@font/carnasbold"
-        />
-
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editText_login_username"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/usuusu"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_alignStart="@+id/usuusu"
         android:autofillHints=""
         android:background="@drawable/rounded_corners"
         android:fontFamily="@font/carnasthin"
+        android:foregroundGravity="center"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
-        android:text="RutAdmin"
-
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textColorHighlight="#C8C8C8" />
 
     <TextView
         android:id="@+id/usupw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText_login_username"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
-        android:text="contraseña"
+        android:layout_below="@id/editText_login_username"
+        android:layout_alignStart="@+id/editText_login_username"
+        android:layout_marginTop="14dp"
         android:fontFamily="@font/carnasbold"
+        android:text="contraseña"
         android:textColor="@color/black"
         android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editText_login_password"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/usupw"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_below="@id/usupw"
+        android:layout_alignStart="@+id/usupw"
+        android:layout_marginStart="0dp"
         android:autofillHints=""
         android:background="@drawable/rounded_corners"
         android:fontFamily="@font/carnasthin"
         android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in_short"
-        android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
-        android:text="9549549"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:textColorHighlight="#C8C8C8" />
 
-    <Button
-        android:id="@+id/button_login_login"
-        android:layout_width="183dp"
-        android:layout_height="70dp"
-        android:layout_below="@+id/editText_login_password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/iniciarsesion"
-        android:fontFamily="@font/carnasthin"
-        android:onClick="onClick"
-        android:textColor="@color/white" />
+            <Button
+                android:id="@+id/button_login_login"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editText_login_password"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="iniciar sesión"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:background="@drawable/rounded_cornersscharff"
+                android:fontFamily="@font/carnasbold"
+                android:onClick="onClick"
+                android:textColor="@color/white" />
 
-
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

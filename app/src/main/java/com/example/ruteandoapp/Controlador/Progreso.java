@@ -197,97 +197,97 @@ public class Progreso extends Fragment {
                     ImageView fondoprogreso = getActivity().findViewById(R.id.backimg);
 
                     if(punts==1){
-                        fondoprogreso.setBackgroundResource(R.drawable.back2);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf2);
                     }
                     else if(punts==2){
-                        fondoprogreso.setBackgroundResource(R.drawable.back3);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf3);
                     }
                     else if(punts==3){
-                        fondoprogreso.setBackgroundResource(R.drawable.back4);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf4);
                     }
                     else if(punts==4){
-                        fondoprogreso.setBackgroundResource(R.drawable.back5);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf5);
                     }
                     else if(punts==5){
-                        fondoprogreso.setBackgroundResource(R.drawable.back5);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf6);
                     }
                     else if(punts==6){
-                        fondoprogreso.setBackgroundResource(R.drawable.back6);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf7);
                     }
                     else if(punts==7){
-                        fondoprogreso.setBackgroundResource(R.drawable.back7);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf9);
                     }
                     else if(punts==8){
-                        fondoprogreso.setBackgroundResource(R.drawable.back8);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf10);
                     }
                     else if(punts==9){
-                        fondoprogreso.setBackgroundResource(R.drawable.back9);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf11);
                     }
                     else if(punts==10){
-                        fondoprogreso.setBackgroundResource(R.drawable.back10);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf12);
                     }
                     else if(punts==11){
-                        fondoprogreso.setBackgroundResource(R.drawable.back11);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf13);
                     }
                     else if(punts==12){
-                        fondoprogreso.setBackgroundResource(R.drawable.back12);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf14);
                     }
                     else if(punts==13){
-                        fondoprogreso.setBackgroundResource(R.drawable.back13);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf15);
                     }
                     else if(punts==14){
-                        fondoprogreso.setBackgroundResource(R.drawable.back14);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf16);
                     }
                     else if(punts==15){
-                        fondoprogreso.setBackgroundResource(R.drawable.back14);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf17);
                     }
                     else if(punts==16){
-                        fondoprogreso.setBackgroundResource(R.drawable.back15);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf18);
                     }
                     else if(punts==17){
-                        fondoprogreso.setBackgroundResource(R.drawable.back16);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf19);
                     }
                     else if(punts==18){
-                        fondoprogreso.setBackgroundResource(R.drawable.back17);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf20);
                     }
                     else if(punts==19){
-                        fondoprogreso.setBackgroundResource(R.drawable.back18);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf21);
                     }
                     else if(punts==20){
-                        fondoprogreso.setBackgroundResource(R.drawable.back19);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf22);
                     }
                     else if(punts==21){
-                        fondoprogreso.setBackgroundResource(R.drawable.back20);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf23);
                     }
                     else if(punts==22){
-                        fondoprogreso.setBackgroundResource(R.drawable.back21);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf24);
                     }
                     else if(punts==23){
-                        fondoprogreso.setBackgroundResource(R.drawable.back22);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf25);
                     }
                     else if(punts==24){
-                        fondoprogreso.setBackgroundResource(R.drawable.back23);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf26);
                     }
                     else if(punts==25){
-                        fondoprogreso.setBackgroundResource(R.drawable.back23);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf27);
                     }
                     else if(punts==26){
-                        fondoprogreso.setBackgroundResource(R.drawable.back24);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf28);
                     }
                     else if(punts==27){
-                        fondoprogreso.setBackgroundResource(R.drawable.back25);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf29);
                     }
                     else if(punts==28){
-                        fondoprogreso.setBackgroundResource(R.drawable.back26);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf30);
                     }
                     else if(punts==29){
-                        fondoprogreso.setBackgroundResource(R.drawable.back27);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf31);
                     }
                     else if(punts==30){
-                        fondoprogreso.setBackgroundResource(R.drawable.back27);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf32);
                     }
                     else if(punts==0){
-                        fondoprogreso.setBackgroundResource(R.drawable.back1);
+                        fondoprogreso.setBackgroundResource(R.drawable.pf1);
                     }
 
                     //checkpoints();

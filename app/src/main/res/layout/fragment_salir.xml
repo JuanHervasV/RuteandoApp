@@ -17,15 +17,26 @@
 
         />
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutscroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
 <RelativeLayout
+    android:id="@+id/layoutimg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
         >
 
         <ImageView
             android:id="@+id/imgcolaborador"
-            android:layout_width="120dp"
-            android:layout_height="100dp"
+            android:layout_width="190dp"
+            android:layout_height="161dp"
             android:background="@drawable/fotoperfil"
             android:layout_centerHorizontal="true"></ImageView>
 
@@ -33,15 +44,17 @@
 </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linearlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
+        android:layout_below="@+id/layoutimg"
         >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="301dp"
+        android:layout_height="280dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/d28ff"
@@ -68,7 +81,7 @@
             android:layout_marginLeft="30dp"
             android:layout_below="@+id/NombreUsuarioS"
             android:fontFamily="@font/carnasthin"
-            android:text="Colaborador de Scharff"
+            android:text="colaborador de Scharff"
             android:textColor="@color/black" />
 
         <TextView
@@ -155,36 +168,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_below="@+id/linearlay"
         android:orientation="horizontal">
 
     <Button
         android:id="@+id/contactos"
-        android:layout_width="163dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
+        android:layout_marginVertical="20dp"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_corneramarillo"
+        android:background="@drawable/rounded_cornersscharff"
         android:onClick="onClick"
-        android:text="Contáctanos"
+        android:textAllCaps="false"
+        android:text="contáctanos"
+        android:textSize="18dp"
         tools:ignore="OnClick" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
     <Button
-        android:layout_marginLeft="40dp"
         android:id="@+id/salir"
-
-        android:layout_width="163dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginVertical="29dp"
-        android:background="@drawable/rounded_corneramarillo"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginVertical="20dp"
         android:gravity="center"
+        android:background="@drawable/rounded_cornersscharff"
         android:fontFamily="@font/carnasbold"
         android:onClick="onClick"
-        android:text="Cerrar sesión"
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        android:text="cerrar sesión"
         tools:ignore="OnClick" />
     </LinearLayout>
+
+    </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>

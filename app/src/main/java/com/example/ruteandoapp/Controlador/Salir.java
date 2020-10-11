@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -99,6 +100,10 @@ public class Salir extends Fragment {
         salir = getActivity().findViewById(R.id.salir);
         contactar = getActivity().findViewById(R.id.contactos);
 
+
+
+
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://200.37.50.53/ApiRuteando/api/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -108,6 +113,39 @@ public class Salir extends Fragment {
 
         Button sal = (Button) view.findViewById(R.id.salir);
         Button conta = (Button) view.findViewById(R.id.contactos);
+
+        sal.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+                    v.setBackgroundResource(R.drawable.rounded_cornermorado);
+                }
+
+                if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+                    v.setBackgroundResource(R.drawable.rounded_cornersscharff);
+                    //v.setBackgroundColor(Color.parseColor("@drawable/rounded_corners"));
+                }
+                return false;
+            }
+        });
+
+        conta.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+                    v.setBackgroundResource(R.drawable.rounded_cornermorado);
+                }
+
+                if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+                    v.setBackgroundResource(R.drawable.rounded_cornersscharff);
+                    //v.setBackgroundColor(Color.parseColor("@drawable/rounded_corners"));
+                }
+                return false;
+            }
+        });
+
         sal.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -141,8 +179,8 @@ public class Salir extends Fragment {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         //int ID = preferences.getInt("id", 4);
-        String nombreusu = preferences.getString("usuario", "None");
-        String apellidousu = preferences.getString("apellido","None");
+        String nombreusu = preferences.getString("usuario", "None").toLowerCase();
+        String apellidousu = preferences.getString("apellido","None").toLowerCase();
         int pts = preferences.getInt("points",-1);
         nombreUsu.setText(""+nombreusu);
         apellidoUsu.setText(""+apellidousu);

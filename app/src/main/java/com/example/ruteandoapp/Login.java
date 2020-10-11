@@ -12,7 +12,9 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +39,7 @@ public class Login extends AppCompatActivity{
     private TextView PasswordText;
     private String Usuario;
     private String Pass;
+    private Button Login_b;
     private long mLastClickTime = 0;
 
 
@@ -81,11 +84,29 @@ public class Login extends AppCompatActivity{
             finish();
         }
         else{
-
+//H
         }
-
+        onTouch();
     }
 
+    public void onTouch() {
+        Login_b = findViewById(R.id.button_login_login);
+        Login_b.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+                    v.setBackgroundResource(R.drawable.rounded_cornermorado);
+                }
+
+                if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+                    v.setBackgroundResource(R.drawable.rounded_cornersscharff);
+                    //v.setBackgroundColor(Color.parseColor("@drawable/rounded_corners"));
+                }
+                return false;
+            }
+        });
+    }
     public void onClick(View v) {
         LoadingThing loadingThing = new LoadingThing(Login.this);
 

@@ -8,6 +8,14 @@
     android:background="@drawable/fondo"
     tools:context=".RetoFotografia">
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imgtitu"
         android:layout_width="wrap_content"
@@ -15,9 +23,7 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/titu4"
         android:layout_marginLeft="20dp"
-        >
-
-    </ImageView>
+        />
 
     <TextView
         android:id="@+id/retoTitulo"
@@ -45,33 +51,21 @@
     <ImageView
         android:id="@+id/fotoback"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="260dp"
         android:layout_below="@id/escogerfoto"
         android:layout_centerInParent="true"
         android:layout_marginLeft="80dp"
-        android:background="@drawable/d16"
+        android:background="@drawable/imgfondo"
         android:foregroundGravity="center" />
 
     <ImageView
         android:id="@+id/foto"
-        android:layout_width="240dp"
+        android:layout_width="260dp"
+        android:layout_height="220dp"
         android:layout_marginTop="20dp"
-        android:layout_height="160dp"
         android:layout_centerInParent="true"
-        android:layout_below="@id/escogerfoto">
+        android:layout_below="@id/escogerfoto"/>
 
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/imgtextDescrip"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/fotoback"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginRight="60dp"
-        android:background="@drawable/d21"></ImageView>
 
     <TextView
         android:id="@+id/retoDescrip"
@@ -79,25 +73,33 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fotoback"
         android:textSize="11dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="45dp"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:fontFamily="@font/carnasthin"
-        android:layout_marginTop="59dp"
-        android:layout_alignStart="@+id/imgtextDescrip"
-        android:layout_alignEnd="@id/imgtextDescrip"
-        android:text="El reto del día de hoy consiste en tomar una fotografía a algún adorno en casa." />
+        android:layout_marginTop="18dp"
+        android:background="@drawable/imgdescrip"
+        android:layout_alignStart="@+id/fotoback"
+        android:layout_alignEnd="@id/fotoback"
+        android:paddingTop="60dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="15dp"
+        android:text="" />
 
-    <Button
-        android:id="@+id/subirfoto"
-        android:layout_width="180dp"
-        android:layout_height="65dp"
-        android:layout_below="@id/imgtextDescrip"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/enviar"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:textAlignment="center" />
-
-
+            <Button
+                android:id="@+id/subirfoto"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/retoDescrip"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="256dp"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:text="¡enviar!"
+                android:background="@drawable/rounded_cornersscharff"
+                android:gravity="center"
+                android:textAlignment="center" />
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

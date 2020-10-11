@@ -8,13 +8,14 @@
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
+    android:background="@color/white"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="@color/white"
+        android:background="@drawable/cornerrecylcer"
         >
 
         <ImageView
@@ -50,7 +51,7 @@
             android:layout_below="@+id/idNombre"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:fontFamily="@font/carnasbold"/>
+            android:fontFamily="@font/carnasthin"/>
 
     </RelativeLayout>
 

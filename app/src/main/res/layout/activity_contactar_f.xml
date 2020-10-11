@@ -9,44 +9,29 @@
 
     <ImageView
         android:id="@+id/imgtitu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="140dp"
         android:src="@drawable/titu5"
-        />
-
-    <TextView
-        android:id="@+id/textinfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imgtitu"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/carnasbold"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="¡Escríbenos tu duda y te enviaremos a nuestro wsp 💬!"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
+        />
 
     <EditText
         android:id="@+id/editTextMulti"
-        android:layout_width="wrap_content"
-        android:layout_height="180dp"
-        android:layout_below="@+id/textinfo"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/imgtitu"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="373dp"
+        android:layout_marginTop="261dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/d1"
-        android:fontFamily="@font/carnasbold"
         android:ems="10"
+        android:fontFamily="@font/carnasbold"
         android:hint="¡Escribe aquí tu consulta!"
         android:inputType="textMultiLine"
         android:text=""
@@ -55,13 +40,89 @@
         android:textColorHint="@color/grey"
         android:textSize="18dp" />
 
+    <ImageView
+        android:id="@+id/imageinfor"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:background="@drawable/d1"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/imgtitu"
+        />
+
+    <ImageView
+        android:id="@+id/imgtelef"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/fotoreto"
+        android:layout_below="@+id/imgtitu"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="30dp"
+
+        />
+    <ImageView
+        android:id="@+id/imgcorreo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/fotoreto"
+        android:layout_below="@+id/imgtelef"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:id="@+id/txtwhats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/imgtelef"
+        android:text="whatsapp"
+        android:layout_marginTop="82dp"
+        android:textColor="@color/black"
+        android:textSize="28dp"
+        android:fontFamily="@font/carnasbold"
+        android:layout_below="@+id/imgtitu"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtwhats"
+        android:layout_toEndOf="@+id/imgtelef"
+        android:fontFamily="@font/carnasthin"
+        android:textColor="@color/black"
+        android:text="978110006"
+        />
+    <TextView
+        android:id="@+id/txtcorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgtelef"
+        android:layout_toEndOf="@+id/imgcorreo"
+        android:text="correo"
+        android:fontFamily="@font/carnasbold"
+        android:textSize="28dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="25dp"
+        />
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/imgcorreo"
+        android:text="ayuda@holascharff.com"
+        android:textColor="@color/black"
+        android:fontFamily="@font/carnasthin"
+        android:layout_below="@+id/txtcorreo"
+        />
+
     <Button
         android:id="@+id/btnenviar"
-        android:layout_width="180dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/editTextMulti"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageinfor"
+        android:text="¡listo!"
+        android:textSize="15dp"
+        android:textAllCaps="false"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/enviar"
+        android:background="@drawable/rounded_cornersscharff"
         android:onClick="onClick"
         android:textAlignment="center" />
 

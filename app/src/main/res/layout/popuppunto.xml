@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
-    android:layout_height="280dp"
+    android:layout_width="250dp"
+    android:layout_height="180dp"
     android:background="@drawable/rounded_cornersscharff"
     android:layout_gravity="center">
-
-    <ImageView
-        android:id="@+id/img"
-        android:src="@drawable/ptscongrats"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"/>
 
     <TextView
         android:id="@+id/Texto"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="¡Felicidades!"
+        android:text="¡buenaaaa!"
         android:textSize="24dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/carnasbold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-
-        android:layout_below="@+id/img"/>
+        android:layout_centerInParent="true"
+/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Texto"
         android:textSize="18dp"
-        android:text="Acabas de ganar 1 punto."
+        android:fontFamily="@font/carnasthin"
+        android:textColor="@color/black"
+        android:text="acabas de ganar 1 punto."
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
 

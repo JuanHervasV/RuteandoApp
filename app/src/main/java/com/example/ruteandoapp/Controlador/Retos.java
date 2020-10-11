@@ -27,8 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-
 import com.example.ruteandoapp.DesafioCuidando;
 import com.example.ruteandoapp.DesafioFotocheck;
 import com.example.ruteandoapp.Entidades.Persona;
@@ -226,6 +224,9 @@ public class Retos extends Fragment {
         itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_cornerceleste));
         recyclerViewRetos.addItemDecoration(itemDecorator);
 
+
+
+
         listaPersonas = new ArrayList<>();
         mDialog = new Dialog(getActivity());
         mDialog.setContentView(R.layout.popuppunto);
@@ -271,8 +272,8 @@ public class Retos extends Fragment {
                                  int s = i;
 
                                  ListarRetos abc = rptas.get(i);
-                                 String nombre = abc.Reto_Nombre();
-                                 String descrip = abc.Reto_Descripcion();
+                                 String nombre = abc.Reto_Nombre().toLowerCase();
+                                 String descrip = abc.Reto_Descripcion().toLowerCase();
                                  int retoid = abc.Reto_id();
 
                                  String imgsf = abc.Image_URL();
@@ -280,7 +281,9 @@ public class Retos extends Fragment {
                                  //image.setBackgroundResource(R.drawable.scharff_logo_blanco);
 
                                  //Lib Picasso
-                                 //Picasso.get().load(imgsf).placeholder(R.drawable.fotoreto).into(image);
+                                 Picasso.get().load(imgsf).placeholder(R.drawable.fotoreto).into(image);
+                                 //Lib Glide
+                                 //Glide.with(Retos.this).load(imgsf).centerCrop().placeholder(R.drawable.fotoreto).into(image);
                                  Drawable myDrawable = image.getDrawable();
 
                                  listaPersonas.add(new RetosInfo("" + nombre, "" + descrip + "", myDrawable, retoid));

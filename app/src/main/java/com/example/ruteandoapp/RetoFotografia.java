@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -106,7 +107,28 @@ public class RetoFotografia extends AppCompatActivity {
                 Fileuploader();
             }
         });
+        onTouch();
     }
+
+    public void onTouch() {
+        up = findViewById(R.id.subirfoto);
+        up.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+                    v.setBackgroundResource(R.drawable.rounded_cornermorado);
+                }
+
+                if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+                    v.setBackgroundResource(R.drawable.rounded_cornersscharff);
+                    //v.setBackgroundColor(Color.parseColor("@drawable/rounded_corners"));
+                }
+                return false;
+            }
+        });
+    }
+
     private String getExtension(Uri uri){
         ContentResolver cr = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -143,97 +165,106 @@ public class RetoFotografia extends AppCompatActivity {
         // Get the data from an ImageView as bytes
         img.setDrawingCacheEnabled(true);
         img.buildDrawingCache();
-        Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] data = baos.toByteArray();
 
-        UploadTask uploadTaske = mountainsRef.putBytes(data);
+        if(null!=img.getDrawable()){
 
-        //uploadTask = Ref.putFile(imguri)
-        uploadTaske.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            byte[] data = baos.toByteArray();
 
-                        Bundle bundlereto = getIntent().getExtras();
+            UploadTask uploadTaske = mountainsRef.putBytes(data);
 
-                        //Extract the data…
-                        int RetoId = bundlereto.getInt("retoid");
+            //uploadTask = Ref.putFile(imguri)
+            uploadTaske.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
-                        int ID = preferences.getInt("id", 2);
+                    Bundle bundlereto = getIntent().getExtras();
 
-                        mountainsRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Uri> task) {
+                    //Extract the data…
+                    int RetoId = bundlereto.getInt("retoid");
 
-                                //Este es el link de la imagen
-                                String FotoURL=task.getResult().toString();
-                                //Log.i("URL",FotoURL);
-                                ValidarPuntos validarPuntos = new ValidarPuntos(RetoId,ID,FotoURL);
-                                Call<ValidarPuntos> call = jsonPlaceHolderApi.validarPuntos(validarPuntos);
-                                call.enqueue(new Callback<ValidarPuntos>() {
-                                    @Override
-                                    public void onResponse(Call<ValidarPuntos> call, Response<ValidarPuntos> response) {
+                    SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                    int ID = preferences.getInt("id", 2);
 
-                                        if (!response.isSuccessful()) {
-                                            //mJsonTxtView.setText("Codigo:" + response.code());
-                                            Toast.makeText(getApplicationContext(), "Usuario/Contraseña incorrecta.", Toast.LENGTH_SHORT).show();
-                                            loadingThing.dismissDialog();
-                                            return;
-                                        }
+                    mountainsRef.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
 
-                                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
-                                        int ID = preferences.getInt("id", 2);
-                                         int retocontadorvaro = preferences.getInt("retocontador",0);
-                                        if (retocontadorvaro ==0){
-                                            retocontadorvaro++;
-                                            SharedPreferences preferenceso = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
-                                            SharedPreferences.Editor editor = preferenceso.edit();
-                                            editor.putInt("retocontador", retocontadorvaro);
-                                            editor.commit();
-                                            ValidarPuntos postsResponse = response.body();
-                                            Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
-                                            loadingThing.dismissDialog();
-                                            finish();
-                                        }
-                                        else{
+                            //Este es el link de la imagen
+                            String FotoURL=task.getResult().toString();
+                            //Log.i("URL",FotoURL);
+                            ValidarPuntos validarPuntos = new ValidarPuntos(RetoId,ID,FotoURL);
+                            Call<ValidarPuntos> call = jsonPlaceHolderApi.validarPuntos(validarPuntos);
+                            call.enqueue(new Callback<ValidarPuntos>() {
+                                @Override
+                                public void onResponse(Call<ValidarPuntos> call, Response<ValidarPuntos> response) {
 
-                                            retocontadorvaro++;
-                                                SharedPreferences preferenceso = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
-                                                SharedPreferences.Editor editor = preferenceso.edit();
-                                                editor.putInt("retocontador", retocontadorvaro);
-                                                editor.commit();
-                                                ValidarPuntos postsResponse = response.body();
-                                                Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
-                                                loadingThing.dismissDialog();
-                                                finish();
-
-                                        }
-
-                                    }
-                                    @Override
-                                    public void onFailure(Call<ValidarPuntos> call, Throwable t) {
-                                        Toast.makeText(getApplicationContext(), "Fallo al ingresar los datos, compruebe su red.", Toast.LENGTH_SHORT).show();
+                                    if (!response.isSuccessful()) {
+                                        //mJsonTxtView.setText("Codigo:" + response.code());
+                                        Toast.makeText(getApplicationContext(), "Usuario/Contraseña incorrecta.", Toast.LENGTH_SHORT).show();
                                         loadingThing.dismissDialog();
-                                        //mJsonTxtView.setText(t.getMessage());
                                         return;
                                     }
-                                });
-                            }
-                        })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception exception) {
-                                        Toast.makeText(RetoFotografia.this, "Fallo al subir imagen.",Toast.LENGTH_LONG).show();
+
+                                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                                    int ID = preferences.getInt("id", 2);
+                                    int retocontadorvaro = preferences.getInt("retocontador",0);
+                                    if (retocontadorvaro ==0){
+                                        retocontadorvaro++;
+                                        SharedPreferences preferenceso = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                                        SharedPreferences.Editor editor = preferenceso.edit();
+                                        editor.putInt("retocontador", retocontadorvaro);
+                                        editor.commit();
+                                        ValidarPuntos postsResponse = response.body();
+                                        Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
                                         loadingThing.dismissDialog();
                                         finish();
                                     }
-                                });
-                            }
-                        });
+                                    else{
 
+                                        retocontadorvaro++;
+                                        SharedPreferences preferenceso = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
+                                        SharedPreferences.Editor editor = preferenceso.edit();
+                                        editor.putInt("retocontador", retocontadorvaro);
+                                        editor.commit();
+                                        ValidarPuntos postsResponse = response.body();
+                                        Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
+                                        loadingThing.dismissDialog();
+                                        finish();
+
+                                    }
+
+                                }
+                                @Override
+                                public void onFailure(Call<ValidarPuntos> call, Throwable t) {
+                                    Toast.makeText(getApplicationContext(), "Fallo al ingresar los datos, compruebe su red.", Toast.LENGTH_SHORT).show();
+                                    loadingThing.dismissDialog();
+                                    //mJsonTxtView.setText(t.getMessage());
+                                    return;
+                                }
+                            });
+                        }
+                    })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception exception) {
+                                    Toast.makeText(RetoFotografia.this, "Fallo al subir imagen.",Toast.LENGTH_LONG).show();
+                                    loadingThing.dismissDialog();
+                                    finish();
+                                }
+                            });
+                }
+            });
+
+        }
+        else{
+            Toast.makeText(RetoFotografia.this, "selecciona una imagen", Toast.LENGTH_SHORT).show();
+            loadingThing.dismissDialog();
+            return;
+        }
 
     }
     final int REQUEST_IMAGE_CAPTURE = 1;
