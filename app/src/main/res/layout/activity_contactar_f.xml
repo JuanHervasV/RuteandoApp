@@ -120,6 +120,7 @@
         android:layout_below="@+id/imageinfor"
         android:text="¡listo!"
         android:textSize="15dp"
+        android:fontFamily="@font/carnasbold"
         android:textAllCaps="false"
         android:layout_centerHorizontal="true"
         android:background="@drawable/rounded_cornersscharff"

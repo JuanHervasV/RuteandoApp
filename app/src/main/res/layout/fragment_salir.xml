@@ -183,6 +183,7 @@
         android:background="@drawable/rounded_cornersscharff"
         android:onClick="onClick"
         android:textAllCaps="false"
+        android:fontFamily="@font/carnasbold"
         android:text="contáctanos"
         android:textSize="18dp"
         tools:ignore="OnClick" />

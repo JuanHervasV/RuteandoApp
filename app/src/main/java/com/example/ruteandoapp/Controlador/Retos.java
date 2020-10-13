@@ -323,8 +323,8 @@ public class Retos extends Fragment {
                 String descripreeto = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getDescrip();
                 int retoidd = listaPersonas.get(recyclerViewRetos.getChildAdapterPosition(view)).getRetoID();
 
-                int tamanio = listaPersonas.size();
-                RetosInfo abc = listaPersonas.get(1);
+                //int tamanio = listaPersonas.size();
+                //RetosInfo abc = listaPersonas.get(1);
 
                 ListarRetos listarRetos = new ListarRetos(iddeusu);
                 Call<List<ListarRetos>> call = jsonPlaceHolderApi.listarRetos(listarRetos);
