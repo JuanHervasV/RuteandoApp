@@ -100,10 +100,6 @@ public class Salir extends Fragment {
         salir = getActivity().findViewById(R.id.salir);
         contactar = getActivity().findViewById(R.id.contactos);
 
-
-
-
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://200.37.50.53/ApiRuteando/api/")
                 .addConverterFactory(GsonConverterFactory.create())

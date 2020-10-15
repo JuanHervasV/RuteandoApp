@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,8 +26,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+
 import com.example.ruteandoapp.DesafioCuidando;
 import com.example.ruteandoapp.DesafioFotocheck;
 import com.example.ruteandoapp.Entidades.Persona;
@@ -44,6 +48,7 @@ import com.squareup.picasso.Picasso;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -205,6 +210,7 @@ public class Retos extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -223,9 +229,6 @@ public class Retos extends Fragment {
         DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         itemDecorator.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.rounded_cornerceleste));
         recyclerViewRetos.addItemDecoration(itemDecorator);
-
-
-
 
         listaPersonas = new ArrayList<>();
         mDialog = new Dialog(getActivity());
@@ -277,13 +280,17 @@ public class Retos extends Fragment {
                                  int retoid = abc.Reto_id();
 
                                  String imgsf = abc.Image_URL();
-                                 String imgs = "http://l.yimg.com/a/i/us/we/52/21.gif";
+                                 //String imgs = "http://l.yimg.com/a/i/us/we/52/21.gif";
                                  //image.setBackgroundResource(R.drawable.scharff_logo_blanco);
 
                                  //Lib Picasso
                                  Picasso.get().load(imgsf).placeholder(R.drawable.fotoreto).into(image);
                                  //Lib Glide
                                  //Glide.with(Retos.this).load(imgsf).centerCrop().placeholder(R.drawable.fotoreto).into(image);
+                                 //TestJHIMage
+
+                                 //
+
                                  Drawable myDrawable = image.getDrawable();
 
                                  listaPersonas.add(new RetosInfo("" + nombre, "" + descrip + "", myDrawable, retoid));
