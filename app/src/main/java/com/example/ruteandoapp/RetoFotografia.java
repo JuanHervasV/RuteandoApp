@@ -140,11 +140,10 @@ public class RetoFotografia extends AppCompatActivity {
         loadingThing.startLoadingAnimation();
         //StorageReference Ref=mStorageRef.child(System.currentTimeMillis()+"."+getExtension(img));
 
-
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(RetoFotografia.this);
-        int ID = preferences.getInt("id", 2);
+
         String tituloreto = preferences.getString("nombrereto", "NombreReto");
-        String descripreto = preferences.getString("descripreto", "DescripReto");
+
         String usuario = preferences.getString("usuario", "usuario");
         String apellido = preferences.getString("apellido", "apellido");
         int retocontadorvaroq = preferences.getInt("retocontador",0);
@@ -153,13 +152,13 @@ public class RetoFotografia extends AppCompatActivity {
         // Create a storage reference from our app
         StorageReference storageRef = FirebaseStorage.getInstance().getReference(""+usuario+""+apellido+"Retos");
 
-// Create a reference to "mountains.jpg"
+        // Create a reference to "mountains.jpg"
         StorageReference mountainsRef = storageRef.child(""+usuario+""+apellido+""+tituloreto+""+String.valueOf(retocontadorvarol));
 
-// Create a reference to 'images/mountains.jpg'
+        // Create a reference to 'images/mountains.jpg'
         StorageReference mountainImagesRef = storageRef.child("images/retos.jpg");
 
-// While the file names are the same, the references point to different files
+        // While the file names are the same, the references point to different files
         mountainsRef.getName().equals(mountainImagesRef.getName());    // true
         mountainsRef.getPath().equals(mountainImagesRef.getPath());    // false
         // Get the data from an ImageView as bytes

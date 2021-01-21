@@ -107,6 +107,7 @@ public class Login extends AppCompatActivity{
             }
         });
     }
+
     public void onClick(View v) {
         LoadingThing loadingThing = new LoadingThing(Login.this);
 

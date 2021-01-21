@@ -1,5 +1,7 @@
 package com.example.ruteandoapp.io;
 
+import com.example.ruteandoapp.model.Avatar;
+import com.example.ruteandoapp.model.AvatarSet;
 import com.example.ruteandoapp.model.DarPuntos;
 import com.example.ruteandoapp.model.DarSoloPuntos;
 import com.example.ruteandoapp.model.InsertarToken;
@@ -47,4 +49,10 @@ public interface APIRetrofitInterface {
 
     @POST("InsertarToken")
     Call<InsertarToken> insertarToken(@Body InsertarToken insertarToken);
+
+    @POST("Avatar")
+    Call<Avatar> avatar(@Body Avatar avatar);
+
+    @POST("AvatarSet")
+    Call<AvatarSet> avatarSet(@Body AvatarSet avatarSet);
 }

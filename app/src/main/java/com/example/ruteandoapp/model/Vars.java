@@ -13,7 +13,6 @@ public class Vars {
     private String Nombre;
     private String Apep;
 
-
     public int UsuId() {
         return UsuId;
     }

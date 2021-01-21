@@ -33,12 +33,23 @@
     android:layout_height="wrap_content"
         >
 
-        <ImageView
-            android:id="@+id/imgcolaborador"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/avatarfina"
-            android:layout_centerHorizontal="true"></ImageView>
+
+
+    <ImageView
+        android:id="@+id/miniavatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/avatarfina"
+        android:layout_centerHorizontal="true"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="12dp"
+        android:id="@+id/avatarimg"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true"/>
+        />
 
 
 </RelativeLayout>
@@ -81,7 +92,7 @@
             android:layout_marginLeft="30dp"
             android:layout_below="@+id/NombreUsuarioS"
             android:fontFamily="@font/carnasthin"
-            android:text="colaborador de Scharff"
+            android:text="scharffero"
             android:textColor="@color/black" />
 
         <TextView
@@ -104,7 +115,7 @@
             android:layout_below="@+id/ApellidoUsuarioS"
             android:layout_marginTop="55dp"
             android:fontFamily="@font/carnasthin"
-            android:text="día de ruteando:"
+            android:text="nivel"
             android:textColor="@color/black" />
 
         <TextView
@@ -115,7 +126,7 @@
             android:layout_marginLeft="30dp"
             android:fontFamily="@font/carnasbold"
             android:paddingEnd="10dp"
-            android:text="01 de 15"
+            android:text="4"
             android:textColor="@color/black"
             android:textSize="26dp"
 
@@ -171,22 +182,22 @@
         android:layout_below="@+id/linearlay"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/contactos"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginVertical="20dp"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_cornersscharff"
-        android:onClick="onClick"
-        android:textAllCaps="false"
-        android:fontFamily="@font/carnasbold"
-        android:text="contáctanos"
-        android:textSize="18dp"
-        tools:ignore="OnClick" />
+        <Button
+            android:id="@+id/contactos"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/rounded_cornersscharff"
+            android:fontFamily="@font/carnasbold"
+            android:onClick="onClick"
+            android:text="contáctanos"
+            android:textAllCaps="false"
+            android:textSize="18dp"
+            tools:ignore="OnClick" />
 
         <View
             android:layout_width="0dp"

@@ -4,10 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +61,7 @@ public class Ranking extends Fragment {
     private TextView usuario;
     private TextView puntos;
     private TextView ranking;
+    private TextView letras;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -121,7 +125,12 @@ public class Ranking extends Fragment {
         usuario = view.findViewById(R.id.NombreUsuario);
         puntos = view.findViewById(R.id.PuntosUsuario);
         ranking = view.findViewById(R.id.RankingUsuario);
+        letras = view.findViewById(R.id.letras);
         listaPersonas = new ArrayList<>();
+
+        letras.setText(Html.fromHtml("<strong>¡ten en cuenta!</strong> acá podrás ver el puntaje acumulado de cada scharffero"));
+        Typeface typeface = ResourcesCompat.getFont(getContext(), R.font.carnasthin);
+        letras.setTypeface(typeface);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://200.37.50.53/ApiRuteando/api/")
