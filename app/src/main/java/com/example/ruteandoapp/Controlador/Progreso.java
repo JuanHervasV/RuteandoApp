@@ -126,7 +126,7 @@ public class Progreso extends Fragment {
             public void onResponse(Call<UsuarioPts> call, Response<UsuarioPts> response) {
                 if (!response.isSuccessful()) {
                     //mJsonTxtView.setText("Codigo:" + response.code());
-                    Toast.makeText(getActivity(), "No se pudieron cargar los puntos", Toast.LENGTH_SHORT).show();
+
                     return;
                 }
                 UsuarioPts rptas = response.body();
@@ -178,7 +178,7 @@ public class Progreso extends Fragment {
                 public void onResponse(Call<UsuarioPts> call, Response<UsuarioPts> response) {
                     if (!response.isSuccessful()) {
                         //mJsonTxtView.setText("Codigo:" + response.code());
-                        Toast.makeText(getActivity(), "No se pudieron cargar los puntos", Toast.LENGTH_SHORT).show();
+
                         return;
                     }
                     UsuarioPts rptas = response.body();
@@ -288,6 +288,8 @@ public class Progreso extends Fragment {
                     }
                     else if(punts==0){
                         fondoprogreso.setBackgroundResource(R.drawable.pf1);
+                    } else {
+                        fondoprogreso.setBackgroundResource(R.drawable.pf32);
                     }
 
                     //checkpoints();

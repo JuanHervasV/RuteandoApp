@@ -349,7 +349,9 @@ public class Retos extends Fragment {
                             ListarRetos abc = rptas.get(i);
                             String nombre = abc.Reto_Nombre();
                             String descrip = abc.Reto_Descripcion();
+                            //Tipo del reto - foto - preg - etc - etc
                             String tipo = abc.Reto_Tipo();
+                            //
                             int retoid = abc.Reto_id();
 
                             if (tipo != "1000") {

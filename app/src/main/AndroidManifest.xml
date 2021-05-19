@@ -19,27 +19,20 @@
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity android:name=".DesafioCuidando"
-            android:screenOrientation="portrait"
-            >
-
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity android:name=".DesafioFotocheck"
             android:screenOrientation="portrait"/>
         <activity android:name=".ContactarF"
             android:screenOrientation="portrait"/>
         <activity android:name=".RetoFotografia"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity android:name=".Maintab"
             android:screenOrientation="portrait"/>
-
         <activity android:name=".SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"
                     android:screenOrientation="portrait"/>
-
                 <category android:name="android.intent.category.LAUNCHER"
                     android:screenOrientation="portrait"/>
             </intent-filter>
@@ -52,10 +45,9 @@
 
             <category android:name="android.intent.category.DEFAULT"
                 android:screenOrientation="portrait"/>
-
         </intent-filter>
-
         </activity>
+
         <activity android:name=".Principal"
             android:screenOrientation="portrait"/>
         <meta-data
@@ -65,5 +57,4 @@
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ruteando_scharff" />
     </application>
-
 </manifest>

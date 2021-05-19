@@ -203,7 +203,7 @@ public class RetoFotografia extends AppCompatActivity {
 
                                     if (!response.isSuccessful()) {
                                         //mJsonTxtView.setText("Codigo:" + response.code());
-                                        Toast.makeText(getApplicationContext(), "Usuario/Contraseña incorrecta.", Toast.LENGTH_SHORT).show();
+
                                         loadingThing.dismissDialog();
                                         return;
                                     }
@@ -230,7 +230,7 @@ public class RetoFotografia extends AppCompatActivity {
                                         editor.putInt("retocontador", retocontadorvaro);
                                         editor.commit();
                                         ValidarPuntos postsResponse = response.body();
-                                        Toast.makeText(RetoFotografia.this, "Imagen subida con éxito, espera resultados.",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(RetoFotografia.this, "Gracias por participar. Tu reto ha sido enviado con éxito",Toast.LENGTH_LONG).show();
                                         loadingThing.dismissDialog();
                                         finish();
 

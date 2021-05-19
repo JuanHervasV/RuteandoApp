@@ -1,12 +1,16 @@
 package com.example.ruteandoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -56,11 +60,26 @@ public class Login extends AppCompatActivity{
         //Toast.makeText(this, ""+refreshedToken, Toast.LENGTH_SHORT).show();
         String TAG = "Login.this";
         FirebaseMessaging.getInstance().subscribeToTopic("RETOS");
+        //--
+        NotificationCompat.Builder notificationBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.icono_retos)
+                .setContentTitle("Title")
+                .setContentText("Body")
+                .setAutoCancel(true)
+                .setOnlyAlertOnce(true);
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationBuilder.setPriority(Notification.PRIORITY_HIGH);
+        notificationBuilder.setVibrate(new long[0]);
+        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+        //--
+
         //Log.i(TAG,"Mi token es: " + refreshedToken);
 
         LoginText = findViewById(R.id.editText_login_username);
         PasswordText = findViewById(R.id.editText_login_password);
-
 
         //TestApi = findViewById(R.id.TestApi);
         Retrofit retrofit = new Retrofit.Builder()

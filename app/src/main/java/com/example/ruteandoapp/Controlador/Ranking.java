@@ -175,7 +175,7 @@ public class Ranking extends Fragment {
             public void onResponse(Call<UsuarioPts> call, Response<UsuarioPts> response) {
                 if (!response.isSuccessful()) {
                     //mJsonTxtView.setText("Codigo:" + response.code());
-                    Toast.makeText(getActivity(), "No se pudieron cargar los puntos", Toast.LENGTH_SHORT).show();
+
                     return;
                 }
                 UsuarioPts rptas = response.body();
@@ -222,7 +222,7 @@ public class Ranking extends Fragment {
                 @Override
                 public void onResponse(Call<List<UsuarioRanking>> call, Response<List<UsuarioRanking>> response) {
                     if (!response.isSuccessful()) {
-                        Toast.makeText(getActivity(), "No correcto", Toast.LENGTH_SHORT).show();
+
                         return;
                     }
                     List<UsuarioRanking> rptas = response.body();
@@ -315,7 +315,7 @@ public class Ranking extends Fragment {
             public void onResponse(Call<RankingUsuario> call, Response<RankingUsuario> response) {
                 if (!response.isSuccessful()) {
                     //mJsonTxtView.setText("Codigo:" + response.code());
-                    Toast.makeText(getActivity(), "No se pudieron cargar los puntos", Toast.LENGTH_SHORT).show();
+
                     return;
                 }
                 RankingUsuario rptas = response.body();
