@@ -288,8 +288,6 @@ public class Progreso extends Fragment {
                     }
                     else if(punts==0){
                         fondoprogreso.setBackgroundResource(R.drawable.pf1);
-                    } else {
-                        fondoprogreso.setBackgroundResource(R.drawable.pf32);
                     }
 
                     //checkpoints();

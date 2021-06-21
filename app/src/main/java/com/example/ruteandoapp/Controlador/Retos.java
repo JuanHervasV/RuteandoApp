@@ -193,7 +193,7 @@ public class Retos extends Fragment {
                     else if(s==1){
 
                     }
-*/
+                xd*/
 
             }
         });
